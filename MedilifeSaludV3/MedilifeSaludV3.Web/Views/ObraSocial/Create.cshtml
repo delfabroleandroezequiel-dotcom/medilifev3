@@ -1,0 +1,67 @@
+﻿@model MedilifeSaludV3.Web.Models.ObraSocial
+
+@{
+    ViewData["Title"] = "Nueva Obra Social";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Nueva Obra Social</h3>
+        <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Obra Social</label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label asp-for="Cuit" class="form-label"></label>
+                        <input asp-for="Cuit" class="form-control" />
+                        <span asp-validation-for="Cuit" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Tel/Fax</label>
+                        <input asp-for="TelFax" class="form-control" />
+                        <span asp-validation-for="TelFax" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Direccion" class="form-label"></label>
+                    <input asp-for="Direccion" class="form-control" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Comentario" class="form-label"></label>
+                    <textarea asp-for="Comentario" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="Comentario" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

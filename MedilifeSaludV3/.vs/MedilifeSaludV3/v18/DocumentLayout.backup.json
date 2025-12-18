@@ -1,0 +1,360 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\obrasocial\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\obrasocial\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\obrasocial\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\obrasocial\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\controllers\\obrasocialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\controllers\\obrasocialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\services\\excel\\excelexportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\services\\excel\\excelexportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\services\\excel\\excelcolumn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\services\\excel\\excelcolumn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\services\\currentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\services\\currentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\services\\icurrentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\services\\icurrentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\models\\obrasocial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\models\\obrasocial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\models\\auditableentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\models\\auditableentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\obrasocial\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\obrasocial\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\obrasocial\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\obrasocial\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\views\\obrasocial\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\views\\obrasocial\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|c:\\users\\leandro delfabro\\onedrive\\escritorio\\proyecto ia\\medilifesaludv3\\medilifesaludv3.web\\medilifesaludv3.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F01CC45C-3C34-4A79-98C0-3623C262DB35}|MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj|solutionrelative:medilifesaludv3.web\\medilifesaludv3.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T15:12:38.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAqwGYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T15:04:21.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ObraSocialController.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Controllers\\ObraSocialController.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Controllers\\ObraSocialController.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Controllers\\ObraSocialController.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Controllers\\ObraSocialController.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAqwLIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:23:11.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Index.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Index.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAawBgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T13:24:09.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAqwD0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T13:30:50.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Edit.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Edit.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Edit.cshtml",
+              "ViewState": "AgIAADUAAAAAAAAAAAAqwEkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T13:24:59.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\appsettings.json",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\appsettings.json",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-17T13:21:45.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAABgAAAAAAAAAAAAcwHAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-17T13:36:00.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Program.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Program.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:21:30.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ExcelExportService.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\Excel\\ExcelExportService.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Services\\Excel\\ExcelExportService.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\Excel\\ExcelExportService.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Services\\Excel\\ExcelExportService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAqwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:52:49.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:17:10.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ExcelColumn.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\Excel\\ExcelColumn.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Services\\Excel\\ExcelColumn.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\Excel\\ExcelColumn.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Services\\Excel\\ExcelColumn.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:52:34.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CurrentUserService.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\CurrentUserService.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Services\\CurrentUserService.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\CurrentUserService.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Services\\CurrentUserService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:50:54.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ICurrentUserService.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\ICurrentUserService.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Services\\ICurrentUserService.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Services\\ICurrentUserService.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Services\\ICurrentUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:50:19.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AuditableEntity.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Models\\AuditableEntity.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Models\\AuditableEntity.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Models\\AuditableEntity.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Models\\AuditableEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:47:50.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Delete.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Delete.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Delete.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwB8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T13:25:46.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ObraSocial.cs",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Models\\ObraSocial.cs",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Models\\ObraSocial.cs",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Models\\ObraSocial.cs",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Models\\ObraSocial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T13:16:33.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Details.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Details.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Details.cshtml",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwD4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T13:25:24.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Create.cshtml",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\Views\\ObraSocial\\Create.cshtml",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\Views\\ObraSocial\\Create.cshtml",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwEcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T13:24:41.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MedilifeSaludV3.Web",
+              "DocumentMoniker": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj",
+              "RelativeDocumentMoniker": "MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj",
+              "ToolTip": "C:\\Users\\Leandro Delfabro\\OneDrive\\Escritorio\\PROYECTO IA\\MedilifeSaludV3\\MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj",
+              "RelativeToolTip": "MedilifeSaludV3.Web\\MedilifeSaludV3.Web.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-17T13:17:30.261Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

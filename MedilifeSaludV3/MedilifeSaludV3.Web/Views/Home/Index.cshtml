@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container-fluid mt-4">
+
+    <!-- ================= GESTIÓN STOCK ================= -->
+    <h4 class="mb-3">Gestión Stock</h4>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-box-seam"></i>
+                <span>Stock</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-clock-history"></i>
+                <span>Histórico</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile warning">
+                <i class="bi bi-exclamation-triangle"></i>
+                <span>Por vencer<br />(60 días)</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile warning">
+                <i class="bi bi-exclamation-triangle"></i>
+                <span>Por vencer<br />(30 días)</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile danger">
+                <i class="bi bi-x-octagon"></i>
+                <span>Vencidos</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= FACTURACIÓN ================= -->
+    <h4 class="mb-3">Facturación Medilife</h4>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-receipt"></i>
+                <span>Facturas<br />Medilife</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-bag"></i>
+                <span>Compras<br />Medilife</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Facturas<br />DFMedic</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-bag-check"></i>
+                <span>Compras<br />DFMedic</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-cash-stack"></i>
+                <span>Recibos<br />de sueldo</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= ADMINISTRACIÓN ================= -->
+    <h4 class="mb-3">Administración</h4>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-people"></i>
+                <span>Pacientes</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-heart-pulse"></i>
+                <span>Médicos</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                <i class="bi bi-building"></i>
+                <span>Instituciones</span>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a asp-controller="ObraSocial" asp-action="Index" class="dashboard-tile primary">
+                <i class="bi bi-shield-check"></i>
+                <span>Obras<br />Prestadores</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+<style>
+    .dashboard-tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 110px;
+        background: #0d6efd;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 500;
+        text-align: center;
+        transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+        .dashboard-tile i {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .dashboard-tile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,.15);
+            color: white;
+        }
+
+        .dashboard-tile.warning {
+            background: #ffc107;
+            color: #000;
+        }
+
+        .dashboard-tile.danger {
+            background: #dc3545;
+        }
+
+        .dashboard-tile.primary {
+            background: #198754;
+        }
+</style>

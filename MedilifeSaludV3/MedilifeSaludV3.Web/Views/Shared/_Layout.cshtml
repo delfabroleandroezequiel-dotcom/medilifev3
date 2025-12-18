@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MEDILIFE SALUD (V3)</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" />
+
+</head>
+
+<body>
+    <!-- Topbar -->
+    <header class="topbar-modern">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 border-bottom bg-light">
+
+            <!-- Marca -->
+            <div class="d-flex align-items-center gap-2">
+                <button id="btnSidebarToggle"
+                        class="btn btn-icon"
+                        type="button"
+                        title="Menú">
+                    <i class="bi bi-list"></i>
+                </button>
+
+            </div>
+
+            <div class="topbar-right d-flex align-items-center gap-2">
+                <i class="bi bi-person-circle fs-5"></i>
+
+                <div class="text-end lh-sm">
+                    <div class="fw-semibold">
+                        @User.Identity?.Name
+                    </div>
+                    <div class="text-muted small">
+                        @User.FindFirst("preferred_username")?.Value
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Layout: Sidebar + Content -->
+    <div class="app-shell">
+        <aside id="sidebar" class="sidebar border-end bg-light">
+            <nav class="nav flex-column py-2">
+
+                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-house-door"></i>
+                    <span class="nav-text">Home</span>
+                </a>
+
+                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" asp-controller="ObraSocial" asp-action="Index">
+                    <i class="bi bi-hospital"></i>
+                    <span class="nav-text">Obras Sociales</span>
+                </a>
+
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="container-fluid py-3">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function () {
+            const sidebar = document.getElementById('sidebar');
+            const btn = document.getElementById('btnSidebarToggle');
+
+            // restaurar estado
+            if (localStorage.getItem('ml_sidebar_collapsed') === '1') {
+                document.body.classList.add('sidebar-collapsed');
+            }
+
+            btn.addEventListener('click', function () {
+                document.body.classList.toggle('sidebar-collapsed');
+                localStorage.setItem('ml_sidebar_collapsed',
+                    document.body.classList.contains('sidebar-collapsed') ? '1' : '0'
+                );
+            });
+        })();
+    </script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

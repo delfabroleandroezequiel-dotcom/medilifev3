@@ -1,0 +1,114 @@
+/* App shell */
+.app-shell {
+    display: flex;
+    min-height: calc(100vh - 56px); /* aprox topbar */
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    transition: width 0.15s ease-in-out;
+}
+
+.sidebar .nav-link {
+    color: #333;
+    border-radius: 0.5rem;
+    margin: 0.15rem 0.5rem;
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(0,0,0,0.06);
+}
+
+.sidebar .nav-link i {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Collapsed sidebar */
+body.sidebar-collapsed .sidebar {
+    width: 64px;
+}
+
+body.sidebar-collapsed .sidebar .nav-text {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebar .nav-link {
+    justify-content: center;
+    margin: 0.15rem 0.3rem;
+}
+/* App shell */
+.app-shell {
+    display: flex;
+    min-height: calc(100vh - 56px); /* aprox topbar */
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    transition: width 0.15s ease-in-out;
+}
+
+    .sidebar .nav-link {
+        color: #333;
+        border-radius: 0.5rem;
+        margin: 0.15rem 0.5rem;
+    }
+
+        .sidebar .nav-link:hover {
+            background: rgba(0,0,0,0.06);
+        }
+
+        .sidebar .nav-link i {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+/* Content */
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Collapsed sidebar */
+body.sidebar-collapsed .sidebar {
+    width: 64px;
+}
+
+    body.sidebar-collapsed .sidebar .nav-text {
+        display: none;
+    }
+
+    body.sidebar-collapsed .sidebar .nav-link {
+        justify-content: center;
+        margin: 0.15rem 0.3rem;
+    }
+
+#tblObrasSociales thead input[type="date"] {
+    min-width: 135px;
+}
+
+.dataTables_length{
+    display:none;
+}

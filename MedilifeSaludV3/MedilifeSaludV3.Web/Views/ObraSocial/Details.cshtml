@@ -1,0 +1,63 @@
+﻿@model MedilifeSaludV3.Web.Models.ObraSocial
+
+@{
+    ViewData["Title"] = "Detalle Obra Social";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Detalle</h3>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" asp-action="Index">Volver</a>
+            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <dl class="row mb-0">
+
+                <dt class="col-sm-3">Obra Social</dt>
+                <dd class="col-sm-9">@Model.Nombre</dd>
+
+                <dt class="col-sm-3">CUIT</dt>
+                <dd class="col-sm-9">@Model.Cuit</dd>
+
+                <dt class="col-sm-3">Dirección</dt>
+                <dd class="col-sm-9">@Model.Direccion</dd>
+
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+
+                <dt class="col-sm-3">Tel/Fax</dt>
+                <dd class="col-sm-9">@Model.TelFax</dd>
+
+                <dt class="col-sm-3">Comentario</dt>
+                <dd class="col-sm-9"><pre class="mb-0" style="white-space:pre-wrap">@Model.Comentario</pre></dd>
+
+                <dt class="col-sm-3">Creado</dt>
+                <dd class="col-sm-9">
+                    @Model.Creado.ToString("dd/MM/yyyy HH:mm")<br />
+                    <span class="text-muted">@Model.CreadoPor</span>
+                </dd>
+
+                <dt class="col-sm-3">Modificado</dt>
+                <dd class="col-sm-9">
+                    @if (Model.Modificado.HasValue)
+                    {
+                        @Model.Modificado.Value.ToString("dd/MM/yyyy HH:mm")
+                    
+                        <br />
+                        <span class="text-muted">@Model.ModificadoPor</span>
+                    }
+                    else
+                    {
+                        <span class="text-muted">—</span>
+                    }
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+</div>
