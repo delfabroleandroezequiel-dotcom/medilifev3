@@ -41,6 +41,20 @@
                     </div>
                 </div>
 
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="CondicionAnteIVA" class="form-label">Condición ante IVA</label>
+                        <select asp-for="CondicionAnteIVA" asp-items="Html.GetEnumSelectList<CondicionAnteIVA>()" class="form-select"></select>
+                        <span asp-validation-for="CondicionAnteIVA" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" asp-for="Excento" />
+                            <label class="form-check-label" asp-for="Excento">Excento</label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label asp-for="Direccion" class="form-label"></label>
                     <input asp-for="Direccion" class="form-control" />

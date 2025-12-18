@@ -49,7 +49,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .RequireAuthorization();
 
-// Seed r�pido para prototipo
+// Seed rápido para prototipo
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -58,8 +58,17 @@ using (var scope = app.Services.CreateScope())
     if (!db.ObrasSociales.Any())
     {
         db.ObrasSociales.AddRange(
-            new ObraSocial {  Nombre = "OSDE", Cuit = "30-00000000-0", Email = "contacto@osde.com.ar", TelFax = "011-0000-0000", Creado = DateTime.Now, CreadoPor = "seed" },
-            new ObraSocial {  Nombre = "Swiss Medical", Cuit = "30-11111111-1", Email = "info@swissmedical.com.ar", TelFax = "011-1111-1111", Creado = DateTime.Now, CreadoPor = "seed" }
+            new ObraSocial {  Nombre = "OSDE", Cuit = "30-00000000-0", Email = "contacto@osde.com.ar", TelFax = "011-0000-0000", Excento = false, CondicionAnteIVA = CondicionAnteIVA.Inscripto },
+            new ObraSocial {  Nombre = "Swiss Medical", Cuit = "30-11111111-1", Email = "info@swissmedical.com.ar", TelFax = "011-1111-1111", Excento = false, CondicionAnteIVA = CondicionAnteIVA.Inscripto }
+        );
+        db.SaveChanges();
+    }
+
+    if (!db.Medicos.Any())
+    {
+        db.Medicos.AddRange(
+            new Medico { Apellido = "Pérez", Nombre = "Juan", Comentario = "Cardiología" },
+            new Medico { Apellido = "Gómez", Nombre = "Ana", Comentario = "Clínica" }
         );
         db.SaveChanges();
     }

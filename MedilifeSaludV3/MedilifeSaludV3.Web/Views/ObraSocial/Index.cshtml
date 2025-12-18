@@ -44,6 +44,9 @@
                             <th>Email</th>
                             <th>Tel/Fax</th>
 
+                            <th>Excento</th>
+                            <th>Condición ante IVA</th>
+
                             <!-- Auditoría -->
                             <th class="col-audit">Creado</th>
                             <th class="col-audit">Modificado</th>
@@ -52,11 +55,28 @@
                         </tr>
 
                         <tr>
-                            <th><input class="form-control form-control-sm col-filter" placeholder="Filtrar..." /></th>
-                            <th><input class="form-control form-control-sm col-filter" placeholder="Filtrar..." /></th>
-                            <th><input class="form-control form-control-sm col-filter" placeholder="Filtrar..." /></th>
-                            <th><input class="form-control form-control-sm col-filter" placeholder="Filtrar..." /></th>
-                            <th><input class="form-control form-control-sm col-filter" placeholder="Filtrar..." /></th>
+                            <th><input id="fNombre" class="form-control form-control-sm dt-col-filter" data-col="0" placeholder="Filtrar..." /></th>
+                            <th><input id="fCuit" class="form-control form-control-sm dt-col-filter" data-col="1" placeholder="Filtrar..." /></th>
+                            <th><input id="fEmail" class="form-control form-control-sm dt-col-filter" data-col="2" placeholder="Filtrar..." /></th>
+                            <th><input id="fTelFax" class="form-control form-control-sm dt-col-filter" data-col="3" placeholder="Filtrar..." /></th>
+
+                            <th>
+                                <select id="fExcento" class="form-select form-select-sm dt-col-filter" data-col="4">
+                                    <option value="">(Todos)</option>
+                                    <option value="Sí">Sí</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </th>
+
+                            <th>
+                                <select id="fCondIva" class="form-select form-select-sm dt-col-filter" data-col="5">
+                                    <option value="">(Todos)</option>
+                                    @foreach (var opt in Html.GetEnumSelectList<CondicionAnteIVA>())
+                                    {
+                                        <option value="@opt.Text">@opt.Text</option>
+                                    }
+                                </select>
+                            </th>
 
                             <!-- Filtros fecha: desde/hasta -->
                             <th class="col-audit">
@@ -83,6 +103,8 @@
                             <td>@item.Cuit</td>
                             <td>@item.Email</td>
                             <td>@item.TelFax</td>
+                            <td>@(item.Excento ? "Sí" : "No")</td>
+                            <td>@item.CondicionAnteIVA.GetDisplayName()</td>
                                 <td class="col-audit" data-creado="@item.Creado.ToString("yyyy-MM-dd")">
                                     <small class="text-muted">
                                         @item.Creado.ToString("dd/MM/yyyy HH:mm")<br />
@@ -111,107 +133,107 @@
 </div>
 
 @section Scripts {
-        <script>
-            $(function () {
+    <script>
+        $(function () {
 
-                // Custom filter: rango fechas (usa data-creado / data-modificado)
-                $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-                    if (settings.nTable.id !== 'tblObrasSociales') return true;
+            // Custom filter: rango fechas (usa data-creado / data-modificado)
+            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+                if (settings.nTable.id !== 'tblObrasSociales') return true;
 
-                    var row = settings.aoData[dataIndex].nTr;
+                var row = settings.aoData[dataIndex].nTr;
 
-                    // Creado
-                    var creado = $(row).find('td.col-audit').eq(0).attr('data-creado') || "";
-                    var creadoDesde = $('#creadoDesde').val();
-                    var creadoHasta = $('#creadoHasta').val();
+                // Creado
+                var creado = $(row).find('td.col-audit').eq(0).attr('data-creado') || "";
+                var creadoDesde = $('#creadoDesde').val();
+                var creadoHasta = $('#creadoHasta').val();
 
-                    if (creadoDesde && (!creado || creado < creadoDesde)) return false;
-                    if (creadoHasta && (!creado || creado > creadoHasta)) return false;
+                if (creadoDesde && (!creado || creado < creadoDesde)) return false;
+                if (creadoHasta && (!creado || creado > creadoHasta)) return false;
 
-                    // Modificado
-                    var mod = $(row).find('td.col-audit').eq(1).attr('data-modificado') || "";
-                    var modDesde = $('#modDesde').val();
-                    var modHasta = $('#modHasta').val();
+                // Modificado
+                var mod = $(row).find('td.col-audit').eq(1).attr('data-modificado') || "";
+                var modDesde = $('#modDesde').val();
+                var modHasta = $('#modHasta').val();
 
-                    // si el usuario filtra por modificado y la fila no tiene modificado => fuera
-                    if ((modDesde || modHasta) && !mod) return false;
+                if ((modDesde || modHasta) && !mod) return false;
+                if (modDesde && mod < modDesde) return false;
+                if (modHasta && mod > modHasta) return false;
 
-                    if (modDesde && mod < modDesde) return false;
-                    if (modHasta && mod > modHasta) return false;
+                return true;
+            });
 
-                    return true;
-                });
+            var table = $('#tblObrasSociales').DataTable({
+                orderCellsTop: true,
+                fixedHeader: false,
+                pageLength: 25,
+                lengthChange: true,
+                searching: true,
+                // no mostrar el buscador global
+                dom: "<'row mb-2'<'col-12'tr>>" +
+                    "<'row mt-2'<'col-md-5'i><'col-md-7'p>>",
+                ordering: true,
+                info: true,
+                autoWidth: false,
+                columnDefs: [
+                    { orderable: false, targets: [8] },     // acciones
+                    { searchable: false, targets: [8] },    // acciones
+                    { visible: false, targets: [6, 7] }     // auditoría oculta al inicio
+                ],
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json"
+                }
+            });
 
-                var table = $('#tblObrasSociales').DataTable({
-                    orderCellsTop: true,
-                    fixedHeader: false,
-                    pageLength: 25,
-                    lengthChange: true,
-                    searching: true,
-                                // ❌ no mostrar el buscador global (el "Buscar:")
-                    dom: "<'row mb-2'<'col-12'tr>>" +
-                        "<'row mt-2'<'col-md-5'i><'col-md-7'p>>",
-                    ordering: true,
-                    info: true,
-                    autoWidth: false,
-                    columnDefs: [
-                        { orderable: false, targets: [7] },  // acciones
-                        { visible: false, targets: [5, 6] }  // auditoría oculta al inicio
-                    ],
-                    language: {
-                        url: "https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json"
-                    }
-                });
+            // filtros por columna (inputs + selects)
+            $('#tblObrasSociales thead tr:eq(1) .dt-col-filter').each(function () {
+                var el = $(this);
+                var colIndex = parseInt(el.data('col'));
 
-                // filtros por columna (solo primeras 5 columnas textuales)
-                $('#tblObrasSociales thead tr:eq(1) input.col-filter').each(function () {
-                    var input = $(this);
-                    var th = input.closest('th');
-                    var colIndex = th.index(); // índice real de la columna
-
-                    input.on('keyup change clear', function () {
-                        table.column(colIndex).search(this.value || "").draw();
-                    });
-                });
-
-                // filtros de fecha desde/hasta
-                $('#creadoDesde,#creadoHasta,#modDesde,#modHasta').on('change', function () {
-                    table.draw();
-                });
-
-                // toggle auditoría
-                var auditVisible = false;
-                $('#btnToggleAudit').on('click', function () {
-                    auditVisible = !auditVisible;
-                    table.column(5).visible(auditVisible);
-                    table.column(6).visible(auditVisible);
-
-                    $(this).html(auditVisible
-                        ? '<i class="bi bi-eye-slash"></i> Ocultar datos'
-                        : '<i class="bi bi-eye"></i> Más datos'
-                    );
+                el.on('keyup change clear', function () {
+                    table.column(colIndex).search(this.value || "").draw();
                 });
             });
 
+            // filtros de fecha desde/hasta
+            $('#creadoDesde,#creadoHasta,#modDesde,#modHasta').on('change', function () {
+                table.draw();
+            });
 
+            // toggle auditoría
+            var auditVisible = false;
+            $('#btnToggleAudit').on('click', function () {
+                auditVisible = !auditVisible;
+                table.column(6).visible(auditVisible);
+                table.column(7).visible(auditVisible);
+
+                $(this).html(auditVisible
+                    ? '<i class="bi bi-eye-slash"></i> Ocultar datos'
+                    : '<i class="bi bi-eye"></i> Más datos'
+                );
+            });
+
+            // export filtrado (usa los filtros del header)
             $('#btnExportFiltrado').on('click', function () {
-                // índices de columnas textuales según tu tabla:
-                // 1 Nombre, 2 Cuit, 3 Email, 4 TelFax
-                var nombre = $('#tblObrasSociales thead tr:eq(1) th:eq(1) input.col-filter').val() || "";
-                var cuit   = $('#tblObrasSociales thead tr:eq(1) th:eq(2) input.col-filter').val() || "";
-                var email  = $('#tblObrasSociales thead tr:eq(1) th:eq(3) input.col-filter').val() || "";
-                var telFax = $('#tblObrasSociales thead tr:eq(1) th:eq(4) input.col-filter').val() || "";
+                var nombre = $('#fNombre').val() || "";
+                var cuit = $('#fCuit').val() || "";
+                var email = $('#fEmail').val() || "";
+                var telFax = $('#fTelFax').val() || "";
+                var excento = $('#fExcento').val() || "";
+                var condicionAnteIVA = $('#fCondIva').val() || "";
 
                 var creadoDesde = $('#creadoDesde').val() || "";
                 var creadoHasta = $('#creadoHasta').val() || "";
                 var modDesde = $('#modDesde').val() || "";
                 var modHasta = $('#modHasta').val() || "";
 
-                var qs = new URLSearchParams({ nombre, cuit, email, telFax,
+                var qs = new URLSearchParams({
+                    nombre, cuit, email, telFax, excento, condicionAnteIVA,
                     creadoDesde, creadoHasta, modDesde, modHasta
                 });
 
                 window.location.href = '@Url.Action("ExportExcelFiltered", "ObraSocial")' + '?' + qs.toString();
             });
-        </script>
+
+        });
+    </script>
 }

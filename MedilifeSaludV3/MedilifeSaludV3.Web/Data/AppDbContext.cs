@@ -14,6 +14,7 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<ObraSocial> ObrasSociales => Set<ObraSocial>();
+    public DbSet<Medico> Medicos => Set<Medico>();
 
     public override int SaveChanges()
     {

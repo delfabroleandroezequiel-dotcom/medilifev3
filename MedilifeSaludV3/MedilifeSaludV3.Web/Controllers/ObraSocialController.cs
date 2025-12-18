@@ -1,4 +1,5 @@
 ﻿using MedilifeSaludV3.Web.Models;
+using MedilifeSaludV3.Web.Services;
 using MedilifeSaludV3.Web.Services.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -57,7 +58,7 @@ public class ObraSocialController : Controller
     // POST: /ObraSocial/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Nombre,Cuit,Direccion,Email,TelFax,Comentario")] ObraSocial obraSocial)
+    public async Task<IActionResult> Create([Bind("Nombre,Cuit,Direccion,Email,TelFax,Excento,CondicionAnteIVA,Comentario")] ObraSocial obraSocial)
     {
         if (!ModelState.IsValid) return View(obraSocial);
 
@@ -82,15 +83,26 @@ public class ObraSocialController : Controller
     // POST: /ObraSocial/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Cuit,Direccion,Email,TelFax,Comentario")] ObraSocial obraSocial)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Cuit,Direccion,Email,TelFax,Excento,CondicionAnteIVA,Comentario")] ObraSocial obraSocial)
     {
         if (id != obraSocial.Id) return NotFound();
         if (!ModelState.IsValid) return View(obraSocial);
 
         try
         {
-            // Adjuntamos y marcamos como Modified (sin tocar Creado/CreadoPor desde el form)
-            _db.Entry(obraSocial).State = EntityState.Modified;
+            // Para NO pisar auditoría (Creado/CreadoPor), actualizamos sobre la entidad existente
+            var current = await _db.ObrasSociales.FirstOrDefaultAsync(x => x.Id == id);
+            if (current == null) return NotFound();
+
+            current.Nombre = obraSocial.Nombre;
+            current.Cuit = obraSocial.Cuit;
+            current.Direccion = obraSocial.Direccion;
+            current.Email = obraSocial.Email;
+            current.TelFax = obraSocial.TelFax;
+            current.Excento = obraSocial.Excento;
+            current.CondicionAnteIVA = obraSocial.CondicionAnteIVA;
+            current.Comentario = obraSocial.Comentario;
+
             await _db.SaveChangesAsync();
         }
         catch (DbUpdateConcurrencyException)
@@ -135,6 +147,8 @@ public class ObraSocialController : Controller
     string? cuit,
     string? email,
     string? telFax,
+    string? excento,
+    string? condicionAnteIVA,
     DateTime? creadoDesde,
     DateTime? creadoHasta,
     DateTime? modDesde,
@@ -147,6 +161,21 @@ public class ObraSocialController : Controller
         if (!string.IsNullOrWhiteSpace(email)) query = query.Where(x => x.Email != null && x.Email.Contains(email));
         if (!string.IsNullOrWhiteSpace(telFax)) query = query.Where(x => x.TelFax != null && x.TelFax.Contains(telFax));
 
+        if (!string.IsNullOrWhiteSpace(excento))
+        {
+            // el filtro viene como "Sí" / "No"
+            if (excento.Equals("Sí", StringComparison.OrdinalIgnoreCase) || excento.Equals("Si", StringComparison.OrdinalIgnoreCase))
+                query = query.Where(x => x.Excento);
+            else if (excento.Equals("No", StringComparison.OrdinalIgnoreCase))
+                query = query.Where(x => !x.Excento);
+        }
+
+        if (!string.IsNullOrWhiteSpace(condicionAnteIVA))
+        {
+            // el filtro viene por el texto del combo (Display)
+            query = query.Where(x => x.CondicionAnteIVA.GetDisplayName() == condicionAnteIVA);
+        }
+
         if (creadoDesde.HasValue) query = query.Where(x => x.Creado.Date >= creadoDesde.Value.Date);
         if (creadoHasta.HasValue) query = query.Where(x => x.Creado.Date <= creadoHasta.Value.Date);
 
@@ -158,6 +187,8 @@ public class ObraSocialController : Controller
         var columns = new[]
         {
         new ExcelColumn<ObraSocial>{ Header="Obra Social", Value=x=>x.Nombre },
+        new ExcelColumn<ObraSocial>{ Header="Excento", Value=x=>x.Excento ? "Sí" : "No" },
+        new ExcelColumn<ObraSocial>{ Header="Condición ante IVA", Value=x=>x.CondicionAnteIVA.GetDisplayName() },
         new ExcelColumn<ObraSocial>{ Header="CUIT", Value=x=>x.Cuit },
         new ExcelColumn<ObraSocial>{ Header="Email", Value=x=>x.Email },
         new ExcelColumn<ObraSocial>{ Header="Tel/Fax", Value=x=>x.TelFax },
@@ -192,6 +223,8 @@ public class ObraSocialController : Controller
         var columns = new[]
         {
             new ExcelColumn<ObraSocial>{ Header="Obra Social", Value=x=>x.Nombre },
+            new ExcelColumn<ObraSocial>{ Header="Excento", Value=x=>x.Excento ? "Sí" : "No" },
+            new ExcelColumn<ObraSocial>{ Header="Condición ante IVA", Value=x=>x.CondicionAnteIVA.GetDisplayName() },
             new ExcelColumn<ObraSocial>{ Header="CUIT", Value=x=>x.Cuit },
             new ExcelColumn<ObraSocial>{ Header="Email", Value=x=>x.Email },
             new ExcelColumn<ObraSocial>{ Header="Tel/Fax", Value=x=>x.TelFax },

@@ -21,5 +21,13 @@ public class ObraSocial : AuditableEntity
     [StringLength(100)]
     public string? TelFax { get; set; }
 
+    /// <summary>
+    /// Excento (tal cual pedido). Se muestra como switch en ABM y como Sí/No en consulta.
+    /// </summary>
+    public bool Excento { get; set; }
+
+    [Required]
+    public CondicionAnteIVA CondicionAnteIVA { get; set; } = CondicionAnteIVA.Inscripto;
+
     public string? Comentario { get; set; }
 }

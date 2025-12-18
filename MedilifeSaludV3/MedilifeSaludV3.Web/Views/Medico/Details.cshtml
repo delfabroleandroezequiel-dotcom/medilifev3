@@ -1,7 +1,7 @@
-﻿@model MedilifeSaludV3.Web.Models.ObraSocial
+@model MedilifeSaludV3.Web.Models.Medico
 
 @{
-    ViewData["Title"] = "Detalle Obra Social";
+    ViewData["Title"] = "Detalle Médico";
 }
 
 <div class="container mt-4">
@@ -15,29 +15,12 @@
 
     <div class="card shadow-sm">
         <div class="card-body">
-
             <dl class="row mb-0">
+                <dt class="col-sm-3">Apellido</dt>
+                <dd class="col-sm-9">@Model.Apellido</dd>
 
-                <dt class="col-sm-3">Obra Social</dt>
+                <dt class="col-sm-3">Nombre</dt>
                 <dd class="col-sm-9">@Model.Nombre</dd>
-
-                <dt class="col-sm-3">CUIT</dt>
-                <dd class="col-sm-9">@Model.Cuit</dd>
-
-                <dt class="col-sm-3">Dirección</dt>
-                <dd class="col-sm-9">@Model.Direccion</dd>
-
-                <dt class="col-sm-3">Email</dt>
-                <dd class="col-sm-9">@Model.Email</dd>
-
-                <dt class="col-sm-3">Tel/Fax</dt>
-                <dd class="col-sm-9">@Model.TelFax</dd>
-
-                <dt class="col-sm-3">Excento</dt>
-                <dd class="col-sm-9">@(Model.Excento ? "Sí" : "No")</dd>
-
-                <dt class="col-sm-3">Condición ante IVA</dt>
-                <dd class="col-sm-9">@Model.CondicionAnteIVA.GetDisplayName()</dd>
 
                 <dt class="col-sm-3">Comentario</dt>
                 <dd class="col-sm-9"><pre class="mb-0" style="white-space:pre-wrap">@Model.Comentario</pre></dd>
@@ -53,7 +36,6 @@
                     @if (Model.Modificado.HasValue)
                     {
                         @Model.Modificado.Value.ToString("dd/MM/yyyy HH:mm")
-                    
                         <br />
                         <span class="text-muted">@Model.ModificadoPor</span>
                     }
@@ -63,7 +45,6 @@
                     }
                 </dd>
             </dl>
-
         </div>
     </div>
 </div>
