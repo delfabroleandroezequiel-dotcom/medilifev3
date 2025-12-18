@@ -1,0 +1,35 @@
+@model MedilifeSaludV3.Web.Models.Paciente
+
+@{
+    ViewData["Title"] = "Eliminar Paciente";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-3 text-danger">Eliminar Paciente</h2>
+
+    <div class="alert alert-warning">
+        ¿Seguro que querés eliminar este paciente?
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Apellido</dt>
+                <dd class="col-sm-9">@Model.Apellido</dd>
+
+                <dt class="col-sm-3">Nombre</dt>
+                <dd class="col-sm-9">@Model.Nombre</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

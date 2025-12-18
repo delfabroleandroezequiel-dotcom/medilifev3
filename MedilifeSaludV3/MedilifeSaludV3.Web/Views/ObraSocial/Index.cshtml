@@ -74,7 +74,9 @@
                                     <option value="">(Todos)</option>
                                     @foreach (var opt in Html.GetEnumSelectList<CondicionAnteIVA>())
                                     {
-                                        <option value="@opt.Text">@opt.Text</option>
+                                        // IMPORTANT: el value es el int del enum (para export/filtrado server-side)
+                                        // El texto visible sigue siendo el Display.
+                                        <option value="@opt.Value">@opt.Text</option>
                                     }
                                 </select>
                             </th>
@@ -191,6 +193,16 @@
                 var colIndex = parseInt(el.data('col'));
 
                 el.on('keyup change clear', function () {
+                    // Caso especial: Condición ante IVA
+                    // - En el <select> el value es el int del enum (para export)
+                    // - En la tabla se muestra el DisplayName (texto)
+                    // Entonces para filtrar DataTables por columna usamos el texto seleccionado.
+                    if (this.id === 'fCondIva') {
+                        var txt = $(this).find('option:selected').text() || "";
+                        table.column(colIndex).search(txt === '(Todos)' ? "" : txt).draw();
+                        return;
+                    }
+
                     table.column(colIndex).search(this.value || "").draw();
                 });
             });

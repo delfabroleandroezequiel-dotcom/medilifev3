@@ -72,6 +72,15 @@ using (var scope = app.Services.CreateScope())
         );
         db.SaveChanges();
     }
+
+    if (!db.Pacientes.Any())
+    {
+        db.Pacientes.AddRange(
+            new Paciente { Apellido = "Fernández", Nombre = "Leandro" },
+            new Paciente { Apellido = "Sosa", Nombre = "María" }
+        );
+        db.SaveChanges();
+    }
 }
 
 

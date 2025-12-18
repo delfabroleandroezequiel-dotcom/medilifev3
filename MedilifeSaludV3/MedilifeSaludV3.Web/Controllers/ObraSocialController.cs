@@ -172,8 +172,12 @@ public class ObraSocialController : Controller
 
         if (!string.IsNullOrWhiteSpace(condicionAnteIVA))
         {
-            // el filtro viene por el texto del combo (Display)
-            query = query.Where(x => x.CondicionAnteIVA.GetDisplayName() == condicionAnteIVA);
+            // Mejor práctica: filtrar por el valor del enum (traducible por EF Core)
+            // En la UI el combo envía el int del enum.
+            if (int.TryParse(condicionAnteIVA, out var iva))
+            {
+                query = query.Where(x => (int)x.CondicionAnteIVA == iva);
+            }
         }
 
         if (creadoDesde.HasValue) query = query.Where(x => x.Creado.Date >= creadoDesde.Value.Date);

@@ -1,0 +1,44 @@
+@model MedilifeSaludV3.Web.Models.Paciente
+
+@{
+    ViewData["Title"] = "Detalle Paciente";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+        <h2 class="mb-0">Paciente</h2>
+        <div class="d-flex gap-2">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">
+                <i class="bi bi-pencil"></i> Editar
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Volver</a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-3">Apellido</dt>
+                <dd class="col-sm-9">@Model.Apellido</dd>
+
+                <dt class="col-sm-3">Nombre</dt>
+                <dd class="col-sm-9">@Model.Nombre</dd>
+
+                <dt class="col-sm-3">Creado</dt>
+                <dd class="col-sm-9">
+                    @Model.Creado.ToString("dd/MM/yyyy HH:mm")
+                    <span class="text-muted">(@Model.CreadoPor)</span>
+                </dd>
+
+                <dt class="col-sm-3">Modificado</dt>
+                <dd class="col-sm-9">
+                    @(Model.Modificado.HasValue ? Model.Modificado.Value.ToString("dd/MM/yyyy HH:mm") : "")
+                    @if (!string.IsNullOrWhiteSpace(Model.ModificadoPor))
+                    {
+                        <span class="text-muted">(@Model.ModificadoPor)</span>
+                    }
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -56,10 +56,29 @@
                     <span class="nav-text">Home</span>
                 </a>
 
-                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" asp-controller="ObraSocial" asp-action="Index">
-                    <i class="bi bi-hospital"></i>
-                    <span class="nav-text">Obras Sociales</span>
+                <!-- Grupo: Configuración -->
+                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" data-bs-toggle="collapse" href="#navConfig" role="button" aria-expanded="true" aria-controls="navConfig">
+                    <i class="bi bi-gear"></i>
+                    <span class="nav-text">Configuración</span>
+                    <span class="ms-auto nav-text"><i class="bi bi-chevron-down"></i></span>
                 </a>
+
+                <div class="collapse show" id="navConfig">
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="ObraSocial" asp-action="Index">
+                        <i class="bi bi-shield-check"></i>
+                        <span class="nav-text">Obras Sociales</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Medico" asp-action="Index">
+                        <i class="bi bi-heart-pulse"></i>
+                        <span class="nav-text">Médicos</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Paciente" asp-action="Index">
+                        <i class="bi bi-people"></i>
+                        <span class="nav-text">Pacientes</span>
+                    </a>
+                </div>
 
             </nav>
         </aside>
