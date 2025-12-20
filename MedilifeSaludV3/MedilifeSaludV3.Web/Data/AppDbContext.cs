@@ -15,6 +15,14 @@ public class AppDbContext : DbContext
 
     public DbSet<ObraSocial> ObrasSociales => Set<ObraSocial>();
     public DbSet<Medico> Medicos => Set<Medico>();
+    public DbSet<Paciente> Pacientes => Set<Paciente>();
+
+    public DbSet<TipoMaterial> TiposMaterial => Set<TipoMaterial>();
+    public DbSet<Modelo> Modelos => Set<Modelo>();
+    public DbSet<TipoFactura> TiposFactura => Set<TipoFactura>();
+    public DbSet<MarcaStock> Marcas => Set<MarcaStock>();
+    public DbSet<Institucion> Instituciones => Set<Institucion>();
+    public DbSet<Empleado> Empleados => Set<Empleado>();
 
     public override int SaveChanges()
     {

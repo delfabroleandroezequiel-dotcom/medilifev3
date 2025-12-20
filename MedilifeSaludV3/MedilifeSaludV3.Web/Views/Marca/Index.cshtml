@@ -1,0 +1,172 @@
+@model IEnumerable<MedilifeSaludV3.Web.Models.MarcaStock>
+
+@{
+    ViewData["Marca"] = "Marcas";
+}
+
+<div class="container-fluid mt-4">
+
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+        <h2 class="mb-0">Marcas</h2>
+
+        <div class="d-flex align-items-center gap-2">
+            <a class="btn btn-primary" asp-action="Create">
+                <i class="bi bi-plus-lg"></i> Nuevo
+            </a>
+
+            <a class="btn btn-outline-success" asp-action="ExportExcel">
+                <i class="bi bi-file-earmark-excel"></i> Todo
+            </a>
+
+            <button id="btnExportFiltrado" type="button" class="btn btn-outline-success">
+                <i class="bi bi-file-earmark-excel"></i> Filtrado
+            </button>
+
+            <button id="btnToggleAudit" type="button" class="btn btn-outline-secondary">
+                <i class="bi bi-eye"></i> Más datos
+            </button>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table id="tblMarcas" class="table table-hover mb-0 align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Marca</th>
+                            <th class="col-audit">Creado</th>
+                            <th class="col-audit">Modificado</th>
+                            <th class="text-end" style="width: 240px;"></th>
+                        </tr>
+                        <tr>
+                            <th><input id="fMarca" class="form-control form-control-sm dt-col-filter" data-col="0" placeholder="Filtrar..." /></th>
+                            <th class="col-audit">
+                                <div class="d-flex gap-1">
+                                    <input id="creadoDesde" type="date" class="form-control form-control-sm" title="Creado desde" />
+                                    <input id="creadoHasta" type="date" class="form-control form-control-sm" title="Creado hasta" />
+                                </div>
+                            </th>
+                            <th class="col-audit">
+                                <div class="d-flex gap-1">
+                                    <input id="modDesde" type="date" class="form-control form-control-sm" title="Modificado desde" />
+                                    <input id="modHasta" type="date" class="form-control form-control-sm" title="Modificado hasta" />
+                                </div>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Marca</td>
+
+                                <td class="col-audit" data-creado="@item.Creado.ToString("yyyy-MM-dd")">
+                                    <small class="text-muted">
+                                        @item.Creado.ToString("dd/MM/yyyy HH:mm")<br />
+                                        @item.CreadoPor
+                                    </small>
+                                </td>
+                                <td class="col-audit" data-modificado="@(item.Modificado.HasValue ? item.Modificado.Value.ToString("yyyy-MM-dd") : "")">
+                                    <small class="text-muted">
+                                        @(item.Modificado.HasValue ? item.Modificado.Value.ToString("dd/MM/yyyy HH:mm") : "")<br />
+                                        @item.ModificadoPor
+                                    </small>
+                                </td>
+
+                                <td class="text-end">
+                                    <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Ver</a>
+                                    <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+
+            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+                if (settings.nTable.id !== 'tblMarcas') return true;
+
+                var row = settings.aoData[dataIndex].nTr;
+                var creado = $(row).find('td.col-audit').eq(0).attr('data-creado') || "";
+                var creadoDesde = $('#creadoDesde').val();
+                var creadoHasta = $('#creadoHasta').val();
+                if (creadoDesde && (!creado || creado < creadoDesde)) return false;
+                if (creadoHasta && (!creado || creado > creadoHasta)) return false;
+
+                var mod = $(row).find('td.col-audit').eq(1).attr('data-modificado') || "";
+                var modDesde = $('#modDesde').val();
+                var modHasta = $('#modHasta').val();
+                if ((modDesde || modHasta) && !mod) return false;
+                if (modDesde && mod < modDesde) return false;
+                if (modHasta && mod > modHasta) return false;
+
+                return true;
+            });
+
+            var table = $('#tblMarcas').DataTable({
+                orderCellsTop: true,
+                fixedHeader: false,
+                pageLength: 25,
+                lengthChange: true,
+                searching: true,
+                dom: "<'row mb-2'<'col-12'tr>>" +
+                    "<'row mt-2'<'col-md-5'i><'col-md-7'p>>",
+                ordering: true,
+                info: true,
+                autoWidth: false,
+                columnDefs: [
+                    { orderable: false, targets: [3] },
+                    { searchable: false, targets: [3] },
+                    { visible: false, targets: [1, 2] }
+                ],
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json"
+                }
+            });
+
+            $('#tblMarcas thead tr:eq(1) .dt-col-filter').each(function () {
+                var el = $(this);
+                var colIndex = parseInt(el.data('col'));
+                el.on('keyup change clear', function () {
+                    table.column(colIndex).search(this.value || "").draw();
+                });
+            });
+
+            $('#creadoDesde,#creadoHasta,#modDesde,#modHasta').on('change', function () {
+                table.draw();
+            });
+
+            var auditVisible = false;
+            $('#btnToggleAudit').on('click', function () {
+                auditVisible = !auditVisible;
+                table.column(1).visible(auditVisible);
+                table.column(2).visible(auditVisible);
+                $(this).html(auditVisible
+                    ? '<i class="bi bi-eye-slash"></i> Ocultar datos'
+                    : '<i class="bi bi-eye"></i> Más datos'
+                );
+            });
+
+            $('#btnExportFiltrado').on('click', function () {
+                var marca = $('#fMarca').val() || "";
+                var creadoDesde = $('#creadoDesde').val() || "";
+                var creadoHasta = $('#creadoHasta').val() || "";
+                var modDesde = $('#modDesde').val() || "";
+                var modHasta = $('#modHasta').val() || "";
+                var qs = new URLSearchParams({ marca, creadoDesde, creadoHasta, modDesde, modHasta });
+                window.location.href = '@Url.Action("ExportExcelFiltered", "Marca")' + '?' + qs.toString();
+            });
+        });
+    </script>
+}

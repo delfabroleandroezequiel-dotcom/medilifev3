@@ -4,9 +4,7 @@ using MedilifeSaludV3.Web.Services.Excel;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web.UI;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
-using Microsoft.Identity.Web.UI;
 
 
 var builder = WebApplication.CreateBuilder(args);

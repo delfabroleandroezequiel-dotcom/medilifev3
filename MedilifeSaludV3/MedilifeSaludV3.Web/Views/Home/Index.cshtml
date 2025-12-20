@@ -4,50 +4,54 @@
 
 <div class="container-fluid mt-4">
 
-    <!-- ================= GESTIÓN STOCK ================= -->
-    <h4 class="mb-3">Gestión Stock</h4>
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <div class="row"></div>
+            <!-- ================= GESTIÓN STOCK ================= -->
+            <h4 class="mb-3">Gestión Stock</h4>
 
-    <div class="row g-3 mb-4">
-        <div class="col-md-2">
-            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
-                <i class="bi bi-box-seam"></i>
-                <span>Stock</span>
-            </a>
+            <div class="row g-3 mb-5">
+                <div class="col-md-2">
+                    <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Stock</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
+                        <i class="bi bi-clock-history"></i>
+                        <span>Histórico</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Home" asp-action="Index" class="dashboard-tile warning">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <span>Por vencer<br />(60 días)</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Home" asp-action="Index" class="dashboard-tile warning">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <span>Por vencer<br />(30 días)</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Home" asp-action="Index" class="dashboard-tile danger">
+                        <i class="bi bi-x-octagon"></i>
+                        <span>Vencidos</span>
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <div class="col-md-2">
-            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
-                <i class="bi bi-clock-history"></i>
-                <span>Histórico</span>
-            </a>
-        </div>
-
-        <div class="col-md-2">
-            <a asp-controller="Home" asp-action="Index" class="dashboard-tile warning">
-                <i class="bi bi-exclamation-triangle"></i>
-                <span>Por vencer<br />(60 días)</span>
-            </a>
-        </div>
-
-        <div class="col-md-2">
-            <a asp-controller="Home" asp-action="Index" class="dashboard-tile warning">
-                <i class="bi bi-exclamation-triangle"></i>
-                <span>Por vencer<br />(30 días)</span>
-            </a>
-        </div>
-
-        <div class="col-md-2">
-            <a asp-controller="Home" asp-action="Index" class="dashboard-tile danger">
-                <i class="bi bi-x-octagon"></i>
-                <span>Vencidos</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- ================= FACTURACIÓN ================= -->
+        <div class="mb-3 col-md-6">
+<!-- ================= FACTURACIÓN ================= -->
     <h4 class="mb-3">Facturación Medilife</h4>
 
-    <div class="row g-3 mb-4">
+    <div class="row g-3 mb-5">
         <div class="col-md-2">
             <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
                 <i class="bi bi-receipt"></i>
@@ -83,39 +87,84 @@
             </a>
         </div>
     </div>
-
-    <!-- ================= ADMINISTRACIÓN ================= -->
-    <h4 class="mb-3">Administración</h4>
-
-    <div class="row g-3 mb-4">
-        <div class="col-md-2">
-            <a asp-controller="Paciente" asp-action="Index" class="dashboard-tile">
-                <i class="bi bi-people"></i>
-                <span>Pacientes</span>
-            </a>
-        </div>
-
-        <div class="col-md-2">
-            <a asp-controller="Medico" asp-action="Index" class="dashboard-tile">
-                <i class="bi bi-heart-pulse"></i>
-                <span>Médicos</span>
-            </a>
-        </div>
-
-        <div class="col-md-2">
-            <a asp-controller="Home" asp-action="Index" class="dashboard-tile">
-                <i class="bi bi-building"></i>
-                <span>Instituciones</span>
-            </a>
-        </div>
-
-        <div class="col-md-2">
-            <a asp-controller="ObraSocial" asp-action="Index" class="dashboard-tile primary">
-                <i class="bi bi-shield-check"></i>
-                <span>Obras<br />Prestadores</span>
-            </a>
         </div>
     </div>
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <!-- ================= CONFIGURACIÓN ================= -->
+            <h4 class="mb-3">Administración</h4>
+
+            <div class="row g-3 mb-5">
+                <div class="col-md-2">
+                    <a asp-controller="ObraSocial" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-shield-check"></i>
+                        <span>Obras<br />Sociales</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Paciente" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-people"></i>
+                        <span>Pacientes</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Medico" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-heart-pulse"></i>
+                        <span>Médicos</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Institucion" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-building"></i>
+                        <span>Instituciones</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Empleado" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-person-badge"></i>
+                        <span>Empleados</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="TipoMaterial" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-box"></i>
+                        <span>Tipo<br />Material</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Modelo" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Modelos</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="TipoFactura" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-receipt"></i>
+                        <span>Tipo<br />Factura</span>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Marca" asp-action="Index" class="dashboard-tile primary">
+                        <i class="bi bi-tag"></i>
+                        <span>Marcas</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    
+
+
 
 </div>
 <style>
@@ -157,4 +206,27 @@
         .dashboard-tile.primary {
             background: #198754;
         }
+
+    .dashboard-tile {
+        min-height: 90px; /* antes seguramente 130+ */
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+
+        .dashboard-tile i {
+            font-size: 1.4rem; /* icono más chico */
+            margin-bottom: 4px;
+        }
+
+        .dashboard-tile span {
+            font-size: 0.75rem;
+            line-height: 1.1;
+        }
+
+    .dashboard-tile {
+        min-height: 80px; /* ↓ antes ~130/150 */
+        padding: 10px 8px; /* ↓ menos aire */
+        border-radius: 8px; /* ↓ más compacto */
+        gap: 6px;
+    }
 </style>

@@ -11,15 +11,13 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" />
-
 </head>
 
-<body>
+<body class="sidebar-collapsed">
     <!-- Topbar -->
     <header class="topbar-modern">
-        <div class="container-fluid d-flex align-items-center justify-content-between px-3 border-bottom bg-light">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 border-bottom bg-light" style="lightblue!important">
 
-            <!-- Marca -->
             <div class="d-flex align-items-center gap-2">
                 <button id="btnSidebarToggle"
                         class="btn btn-icon"
@@ -35,10 +33,7 @@
 
                 <div class="text-end lh-sm">
                     <div class="fw-semibold">
-                        @User.Identity?.Name
-                    </div>
-                    <div class="text-muted small">
-                        @User.FindFirst("preferred_username")?.Value
+                        @User.FindFirst("name")?.Value
                     </div>
                 </div>
             </div>
@@ -57,13 +52,13 @@
                 </a>
 
                 <!-- Grupo: Configuración -->
-                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" data-bs-toggle="collapse" href="#navConfig" role="button" aria-expanded="true" aria-controls="navConfig">
+                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" data-bs-toggle="collapse" href="#navConfig" role="button" aria-expanded="false" aria-controls="navConfig">
                     <i class="bi bi-gear"></i>
                     <span class="nav-text">Configuración</span>
                     <span class="ms-auto nav-text"><i class="bi bi-chevron-down"></i></span>
                 </a>
 
-                <div class="collapse show" id="navConfig">
+                <div class="collapse" id="navConfig">
                     <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="ObraSocial" asp-action="Index">
                         <i class="bi bi-shield-check"></i>
                         <span class="nav-text">Obras Sociales</span>
@@ -77,6 +72,36 @@
                     <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Paciente" asp-action="Index">
                         <i class="bi bi-people"></i>
                         <span class="nav-text">Pacientes</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Institucion" asp-action="Index">
+                        <i class="bi bi-building"></i>
+                        <span class="nav-text">Instituciones</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Empleado" asp-action="Index">
+                        <i class="bi bi-person-badge"></i>
+                        <span class="nav-text">Empleados</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="TipoMaterial" asp-action="Index">
+                        <i class="bi bi-box"></i>
+                        <span class="nav-text">Tipos de Material</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Modelo" asp-action="Index">
+                        <i class="bi bi-diagram-3"></i>
+                        <span class="nav-text">Modelos</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="TipoFactura" asp-action="Index">
+                        <i class="bi bi-receipt"></i>
+                        <span class="nav-text">Tipos de Factura</span>
+                    </a>
+
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Marca" asp-action="Index">
+                        <i class="bi bi-tag"></i>
+                        <span class="nav-text">Marcas</span>
                     </a>
                 </div>
 
@@ -95,22 +120,22 @@
 
     <script>
         (function () {
-            const sidebar = document.getElementById('sidebar');
-            const btn = document.getElementById('btnSidebarToggle');
+          const key = 'ml_sidebar_collapsed';
+          const btn = document.getElementById('btnSidebarToggle');
 
-            // restaurar estado
-            if (localStorage.getItem('ml_sidebar_collapsed') === '1') {
-                document.body.classList.add('sidebar-collapsed');
-            }
+          // Por defecto: colapsado (ya lo da la clase del body)
+          // Si el usuario guardó expandido, lo sacamos
+          if (localStorage.getItem(key) === '0') {
+            document.body.classList.remove('sidebar-collapsed');
+          }
 
-            btn.addEventListener('click', function () {
-                document.body.classList.toggle('sidebar-collapsed');
-                localStorage.setItem('ml_sidebar_collapsed',
-                    document.body.classList.contains('sidebar-collapsed') ? '1' : '0'
-                );
-            });
+          btn.addEventListener('click', function () {
+            document.body.classList.toggle('sidebar-collapsed');
+            localStorage.setItem(key, document.body.classList.contains('sidebar-collapsed') ? '1' : '0');
+          });
         })();
     </script>
+
     <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
 
