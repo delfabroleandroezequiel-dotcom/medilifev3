@@ -1,0 +1,105 @@
+@model MedilifeSaludV3.Web.Models.ViewModels.PresupuestoEditVm
+
+@{
+    ViewData["Title"] = "Editar Presupuesto";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="mb-0">Editar Presupuesto</h2>
+        @if (Model.Id.HasValue)
+        {
+            <a class="btn btn-outline-primary" asp-action="Print" asp-route-id="@Model.Id" target="_blank">
+                <i class="bi bi-printer"></i> Print
+            </a>
+        }
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <partial name="_Form" model="Model" />
+
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check2"></i> Guardar
+                    </button>
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Volver</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Listado</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (function () {
+            function parseMoney(v) {
+                if (!v) return 0;
+                var n = parseFloat(v.toString().replace(',', '.'));
+                return isNaN(n) ? 0 : n;
+            }
+
+            function recalc() {
+                var grand = 0;
+                document.querySelectorAll('#tblItems tbody tr').forEach(function (row) {
+                    var qty = parseInt(row.querySelector('.item-cantidad')?.value || '0', 10);
+                    if (isNaN(qty) || qty < 0) qty = 0;
+
+                    var pu = parseMoney(row.querySelector('.item-precio')?.value);
+                    var total = qty * pu;
+
+                    var totalCell = row.querySelector('.item-total');
+                    if (totalCell) totalCell.textContent = total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                    grand += total;
+                });
+
+                var gt = document.getElementById('grandTotal');
+                if (gt) gt.textContent = grand.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+
+            document.addEventListener('input', function (e) {
+                if (e.target.matches('.item-cantidad') || e.target.matches('.item-precio')) {
+                    recalc();
+                }
+            });
+
+            var tbl = document.getElementById('tblItems');
+            if (tbl) {
+                tbl.addEventListener('click', function (e) {
+                    var btn = e.target.closest('.btnRemoveRow');
+                    if (!btn) return;
+                    var row = btn.closest('tr');
+                    if (row) row.remove();
+                    recalc();
+                });
+            }
+
+            var addBtn = document.getElementById('btnAddRow');
+            if (addBtn) {
+                addBtn.addEventListener('click', function () {
+                    var tbody = document.querySelector('#tblItems tbody');
+                    var tpl = document.getElementById('rowTemplate');
+                    if (!tbody || !tpl) return;
+
+                    var index = tbody.querySelectorAll('tr').length;
+                    var html = tpl.innerHTML.replaceAll('__NAME__', 'Items[' + index + ']');
+                    var temp = document.createElement('tbody');
+                    temp.innerHTML = html.trim();
+                    tbody.appendChild(temp.firstElementChild);
+                    recalc();
+                });
+            }
+
+            recalc();
+        })();
+    </script>
+}

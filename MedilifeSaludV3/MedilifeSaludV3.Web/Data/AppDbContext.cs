@@ -24,6 +24,24 @@ public class AppDbContext : DbContext
     public DbSet<Institucion> Instituciones => Set<Institucion>();
     public DbSet<Empleado> Empleados => Set<Empleado>();
 
+    public DbSet<Presupuesto> Presupuestos => Set<Presupuesto>();
+    public DbSet<PresupuestoItem> PresupuestoItems => Set<PresupuestoItem>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Presupuesto>()
+            .HasIndex(x => new { x.EmpresaId, x.Numero })
+            .IsUnique();
+
+        modelBuilder.Entity<PresupuestoItem>()
+            .HasOne(i => i.Presupuesto)
+            .WithMany(p => p.Items)
+            .HasForeignKey(i => i.PresupuestoId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
+
     public override int SaveChanges()
     {
         ApplyAudit();

@@ -1,0 +1,161 @@
+@model MedilifeSaludV3.Web.Models.ViewModels.PresupuestoEditVm
+@{
+    var readOnly = (ViewData["ReadOnly"] as bool?) ?? false;
+}
+
+<ul class="nav nav-tabs" id="presupuestoTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-datos" data-bs-toggle="tab" data-bs-target="#pane-datos" type="button" role="tab">
+            Datos Generales
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-items" data-bs-toggle="tab" data-bs-target="#pane-items" type="button" role="tab">
+            Detalles
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content border border-top-0 rounded-bottom p-3" id="presupuestoTabContent">
+    <div class="tab-pane fade show active" id="pane-datos" role="tabpanel">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="Numero" class="form-label"></label>
+                <input asp-for="Numero" class="form-control" @* @(readOnly?"readonly":"") *@ />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Fecha" class="form-label"></label>
+                <input asp-for="Fecha" class="form-control" type="date" @* @(readOnly ?"readonly":"") *@ />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="EmpresaId" class="form-label">Empresa</label>
+                <select asp-for="EmpresaId" class="form-select" asp-items="ViewBag.Empresas" @* @(readOnly?"disabled":"") *@>
+                    <option value="">-- Seleccionar --</option>
+                </select>
+                <span asp-validation-for="EmpresaId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PrestadorId" class="form-label">Obra Social</label>
+                <select asp-for="PrestadorId" class="form-select" asp-items="ViewBag.Prestadores" @* @(readOnly?"disabled":"") *@>
+                    <option value="">-- (opcional) --</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="InstitucionId" class="form-label">Institución</label>
+                <select asp-for="InstitucionId" class="form-select" asp-items="ViewBag.Instituciones" @* @(readOnly?"disabled":"") *@>
+                    <option value="">-- (opcional) --</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PacienteId" class="form-label">Paciente</label>
+                <select asp-for="PacienteId" class="form-select" asp-items="ViewBag.Pacientes" @* @(readOnly?"disabled":"") *@>
+                    <option value="">-- (opcional) --</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="MedicoId" class="form-label">Médico</label>
+                <select asp-for="MedicoId" class="form-select" asp-items="ViewBag.Medicos" @* @(readOnly?"disabled":"") *@>
+                    <option value="">-- (opcional) --</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="DescripcionPago" class="form-label">Descripción de pago</label>
+                <textarea asp-for="DescripcionPago" class="form-control" rows="2" @* @(readOnly?"readonly":"") *@></textarea>
+                <span asp-validation-for="DescripcionPago" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="pane-items" role="tabpanel">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="text-muted">Cargá los renglones del presupuesto.</div>
+            @if (!readOnly)
+            {
+                <button type="button" class="btn btn-sm btn-outline-primary" id="btnAddRow">
+                    <i class="bi bi-plus"></i> Agregar renglón
+                </button>
+            }
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-sm align-middle" id="tblItems">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:55%">Detalle</th>
+                        <th style="width:10%">Cant.</th>
+                        <th style="width:15%">Precio (u)</th>
+                        <th style="width:15%">Precio (t)</th>
+                        <th style="width:5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                @for (int i = 0; i < Model.Items.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="hidden" name="Items[@i].Id" value="@Model.Items[i].Id" />
+                            <input type="hidden" name="Items[@i].Orden" value="@Model.Items[i].Orden" />
+                            <input name="Items[@i].Detalle" value="@Model.Items[i].Detalle" class="form-control form-control-sm" @(readOnly?"readonly":"") />
+                        </td>
+                        <td>
+                            <input name="Items[@i].Cantidad" value="@Model.Items[i].Cantidad" class="form-control form-control-sm item-cantidad" type="number" min="1" step="1" @(readOnly?"readonly":"") />
+                        </td>
+                        <td>
+                            <input name="Items[@i].PrecioUnitario" value="@Model.Items[i].PrecioUnitario" class="form-control form-control-sm item-precio" type="number" step="0.01" min="0" @(readOnly?"readonly":"") />
+                        </td>
+                        <td class="text-end">
+                            <span class="item-total"></span>
+                        </td>
+                        <td class="text-end">
+                            @if (!readOnly)
+                            {
+                                <button type="button" class="btn btn-sm btn-outline-danger btnRemoveRow" title="Quitar">
+                                    <i class="bi bi-x"></i>
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+            <div class="border rounded p-2">
+                <div class="fw-semibold">Total: <span id="grandTotal" class="ms-2"></span></div>
+            </div>
+        </div>
+
+        <template id="rowTemplate">
+            <tr>
+                <td>
+                    <input type="hidden" name="__NAME__.Id" value="" />
+                    <input type="hidden" name="__NAME__.Orden" value="0" />
+                    <input name="__NAME__.Detalle" value="" class="form-control form-control-sm" />
+                </td>
+                <td>
+                    <input name="__NAME__.Cantidad" value="1" class="form-control form-control-sm item-cantidad" type="number" min="1" step="1" />
+                </td>
+                <td>
+                    <input name="__NAME__.PrecioUnitario" value="0" class="form-control form-control-sm item-precio" type="number" step="0.01" min="0" />
+                </td>
+                <td class="text-end"><span class="item-total"></span></td>
+                <td class="text-end">
+                    <button type="button" class="btn btn-sm btn-outline-danger btnRemoveRow" title="Quitar">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </td>
+            </tr>
+        </template>
+    </div>
+</div>
+

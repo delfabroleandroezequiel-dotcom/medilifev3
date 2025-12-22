@@ -1,0 +1,28 @@
+@model MedilifeSaludV3.Web.Models.Presupuesto
+
+@{
+    ViewData["Title"] = "Eliminar Presupuesto";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-3 text-danger">Eliminar Presupuesto</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p>¿Confirmás eliminar el presupuesto <strong>N° @Model.Numero</strong>?</p>
+
+            <ul class="list-unstyled mb-4">
+                <li><strong>Fecha:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</li>
+                <li><strong>Empresa:</strong> @Model.Empresa?.RazonSocial</li>
+            </ul>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Eliminar
+                </button>
+                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary ms-2">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

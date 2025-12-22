@@ -1,0 +1,100 @@
+@model MedilifeSaludV3.Web.Models.Presupuesto
+
+@{
+    ViewData["Title"] = "Detalle Presupuesto";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="mb-0">Presupuesto N° @Model.Numero</h2>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-primary" asp-action="Print" asp-route-id="@Model.Id" target="_blank">
+                <i class="bi bi-printer"></i> Print
+            </a>
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">
+                <i class="bi bi-pencil"></i> Editar
+            </a>
+            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@Model.Id">
+                <i class="bi bi-trash"></i> Eliminar
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-3">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <div class="text-muted">Fecha</div>
+                    <div class="fw-semibold">@Model.Fecha.ToString("dd/MM/yyyy")</div>
+                </div>
+                <div class="col-md-9">
+                    <div class="text-muted">Empresa</div>
+                    <div class="fw-semibold">@Model.Empresa?.RazonSocial</div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="text-muted">Obra Social</div>
+                    <div class="fw-semibold">@(Model.Prestador?.Nombre ?? "-")</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-muted">Institución</div>
+                    <div class="fw-semibold">@(Model.Institucion?.Nombre ?? "-")</div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="text-muted">Paciente</div>
+                    <div class="fw-semibold">@(Model.Paciente != null ? (Model.Paciente.Apellido + ", " + Model.Paciente.Nombre) : "-")</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-muted">Médico</div>
+                    <div class="fw-semibold">@(Model.Medico != null ? (Model.Medico.Apellido + ", " + Model.Medico.Nombre) : "-")</div>
+                </div>
+
+                <div class="col-12">
+                    <div class="text-muted">Descripción de pago</div>
+                    <div class="fw-semibold">@Model.DescripcionPago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="mb-3">Detalles</h5>
+
+            <div class="table-responsive">
+                <table class="table table-sm align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Detalle</th>
+                            <th class="text-end">Cant.</th>
+                            <th class="text-end">Precio (u)</th>
+                            <th class="text-end">Precio (t)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var it in Model.Items.OrderBy(i => i.Orden))
+                        {
+                            <tr>
+                                <td>@it.Detalle</td>
+                                <td class="text-end">@it.Cantidad</td>
+                                <td class="text-end">@it.PrecioUnitario.ToString("N2")</td>
+                                <td class="text-end">@it.TotalLinea.ToString("N2")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="3" class="text-end">Total</th>
+                            <th class="text-end">@Model.Total.ToString("N2")</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="d-flex gap-2 mt-3">
+                <a asp-action="Index" class="btn btn-outline-secondary">Volver al listado</a>
+            </div>
+        </div>
+    </div>
+</div>
