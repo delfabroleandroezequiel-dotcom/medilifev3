@@ -1,7 +1,5 @@
 is_global = true
 build_property.TargetFramework = net8.0
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
@@ -11,61 +9,249 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MedilifeSaludV3.Web
 build_property.RootNamespace = MedilifeSaludV3.Web
-build_property.ProjectDir = C:\Users\Leandro Delfabro\OneDrive\Escritorio\PROYECTO IA\MedilifeSaludV3\MedilifeSaludV3.Web\
+build_property.ProjectDir = C:\PracticasIA\medilifev3\MedilifeSaludV3\MedilifeSaludV3.Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Leandro Delfabro\OneDrive\Escritorio\PROYECTO IA\MedilifeSaludV3\MedilifeSaludV3.Web
+build_property.MSBuildProjectDirectory = C:\PracticasIA\medilifev3\MedilifeSaludV3\MedilifeSaludV3.Web
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Home/Index.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Empleado/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Empleado/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Empleado/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Empleado/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Empleado/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Home/Privacy.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Create.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Institucion/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dWNpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Institucion/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dWNpb25cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Institucion/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dWNpb25cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Institucion/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dWNpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Institucion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGl0dWNpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Marca/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Marca/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Marca/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Marca/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Marca/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Medico/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Medico/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Medico/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Medico/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Medico/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Modelo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Modelo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Modelo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Modelo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Modelo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JyYVNvY2lhbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Delete.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JyYVNvY2lhbFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Details.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JyYVNvY2lhbFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Edit.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JyYVNvY2lhbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Index.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/ObraSocial/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JyYVNvY2lhbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Shared/Error.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Paciente/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Paciente/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Paciente/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Paciente/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Paciente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Presupuesto/_Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cX0Zvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/_ViewImports.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoFactura/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0ZhY3R1cmFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoFactura/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0ZhY3R1cmFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoFactura/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0ZhY3R1cmFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoFactura/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0ZhY3R1cmFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoFactura/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0ZhY3R1cmFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoMaterial/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hdGVyaWFsXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoMaterial/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hdGVyaWFsXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoMaterial/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hdGVyaWFsXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoMaterial/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hdGVyaWFsXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/TipoMaterial/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hdGVyaWFsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/_ViewStart.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Leandro Delfabro/OneDrive/Escritorio/PROYECTO IA/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Shared/_Layout.cshtml]
+[C:/PracticasIA/medilifev3/MedilifeSaludV3/MedilifeSaludV3.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-k273w0e5dm
