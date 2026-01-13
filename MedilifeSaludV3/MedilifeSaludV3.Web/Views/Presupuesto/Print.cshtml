@@ -14,17 +14,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Presupuesto @Model.Numero</title>
     <style>
-        page { size: A4; margin: 14mm; }
+        @@page { size: A4; margin: 14mm; }
         body { font-family: Arial, Helvetica, sans-serif; color: #000; }
         .sheet { position: relative; }
         .watermark {
             position: absolute;
-            inset: 0;
-            background: url('/images/watermark.png') no-repeat center 55%;
-            background-size: 55%;
-            opacity: 0.10;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            width: 140mm; /* ajustá a gusto */
+            opacity: 0.10; /* watermark suave */
+            z-index: 0;
             pointer-events: none;
         }
+
         table { width: 100%; border-collapse: collapse; }
         .box td { border: 1px solid #333; padding: 6px; vertical-align: top; }
         .title { text-align: center; font-weight: 700; }
@@ -36,9 +39,9 @@
         .items td.num, .items th.num { text-align: right; }
         .totals { margin-top: 10px; }
         .totals td { border: 1px solid #333; padding: 8px 6px; }
-        .footnote { margin-top: 10px; font-size: 11px; border: 1px solid #333; padding: 8px 6px; }
+        .footnote { font-size: 11px; border: 1px solid #333; padding: 8px 6px;border-top:none; }
         .actions { margin: 0 0 10px 0; display: flex; justify-content: flex-end; gap: 8px; }
-        media print {
+        @@media print {
             .actions { display: none; }
         }
     </style>
@@ -49,7 +52,7 @@
     </div>
 
     <div class="sheet">
-        <div class="watermark"></div>
+        <img class="watermark" src="~/img/watermark.png" alt="" />
 
         <table class="box">
             <tr>
@@ -66,7 +69,7 @@
                     <div style="font-size:14px;">Presupuesto</div>
                     <div style="font-size:20px;">X</div>
                 </td>
-                <td style="width:25%" class="small">
+                <td style="width:25%" class="title">
                     <div><b>N°:</b> @Model.Numero</div>
                     <div><b>Fecha:</b> @Model.Fecha.ToString("dd/MM/yyyy")</div>
                 </td>
@@ -75,12 +78,12 @@
                 <td colspan="3" class="small">
                     <table style="width:100%; border-collapse:collapse;">
                         <tr>
-                            <td style="width:50%; padding:4px 0;"><b>Institución:</b> @(institucion?.Nombre ?? "")</td>
-                            <td style="width:50%; padding:4px 0;"><b>Doctor:</b> @(medico != null ? (medico.Apellido + " " + medico.Nombre) : "")</td>
+                            <td style="width:50%; padding:4px 0;border: none;"><b>Institución:</b> @(institucion?.Nombre ?? "")</td>
+                            <td style="width:50%; padding:4px 0;border: none;"><b>Doctor:</b> @(medico != null ? (medico.Apellido + " " + medico.Nombre) : "")</td>
                         </tr>
                         <tr>
-                            <td style="padding:4px 0;"><b>Obra social:</b> @(prestador?.Nombre ?? "")</td>
-                            <td style="padding:4px 0;"><b>Paciente:</b> @(paciente != null ? (paciente.Apellido + " " + paciente.Nombre) : "")</td>
+                            <td style="padding:4px 0;border: none;"><b>Obra social:</b> @(prestador?.Nombre ?? "")</td>
+                            <td style="padding:4px 0;border: none;"><b>Paciente:</b> @(paciente != null ? (paciente.Apellido + " " + paciente.Nombre) : "")</td>
                         </tr>
                     </table>
                 </td>
@@ -96,7 +99,7 @@
                     <th style="width:18%" class="num">Precio (t)</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="height: 650px;vertical-align: top;">
                 @foreach (var it in Model.Items.OrderBy(i => i.Orden))
                 {
                     <tr>

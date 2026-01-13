@@ -8,7 +8,7 @@
         <div class="mb-3 col-md-6">
             <div class="row"></div>
             <!-- ================= GESTIÓN STOCK ================= -->
-            <h4 class="mb-3">Gestión Stock</h4>
+            <h4 class="mb-3">Gestión</h4>
 
             <div class="row g-3 mb-5">
                 <div class="col-md-2">
@@ -45,6 +45,14 @@
                         <span>Vencidos</span>
                     </a>
                 </div>
+
+                <div class="col-md-2">
+                    <a asp-controller="Presupuesto" asp-action="Index" class="dashboard-tile">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Presupuestos</span>
+                    </a>
+                </div>
+
             </div>
         </div>
         <div class="mb-3 col-md-6">
@@ -92,7 +100,7 @@
     <div class="row">
         <div class="mb-3 col-md-6">
             <!-- ================= CONFIGURACIÓN ================= -->
-            <h4 class="mb-3">Administración</h4>
+            <h4 class="mb-3">Configuración</h4>
 
             <div class="row g-3 mb-5">
                 <div class="col-md-2">
@@ -160,12 +168,6 @@
             </div>
         </div>
     </div>
-   
-
-    
-
-
-
 </div>
 <style>
     .dashboard-tile {

@@ -16,13 +16,13 @@
 <body class="sidebar-collapsed">
     <!-- Topbar -->
     <header class="topbar-modern">
-        <div class="container-fluid d-flex align-items-center justify-content-between px-3 border-bottom bg-light" style="lightblue!important">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 border-bottom bg-light" style="background-color:#0d6efd!important;color:white !important;">
 
             <div class="d-flex align-items-center gap-2">
                 <button id="btnSidebarToggle"
                         class="btn btn-icon"
                         type="button"
-                        title="Menú">
+                        title="Menú" style="color: white;">
                     <i class="bi bi-list"></i>
                 </button>
 
@@ -51,10 +51,19 @@
                     <span class="nav-text">Home</span>
                 </a>
 
-                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" asp-controller="Presupuesto" asp-action="Index">
-                    <i class="bi bi-file-earmark-text"></i>
-                    <span class="nav-text">Presupuestos</span>
+                <!-- Grupo: Gestión -->
+                <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" data-bs-toggle="collapse" href="#navGestion" role="button" aria-expanded="false" aria-controls="navGestion">
+                    <i class="bi bi-briefcase"></i>
+                    <span class="nav-text">Gestión</span>
+                    <span class="ms-auto nav-text"><i class="bi bi-chevron-down"></i></span>
                 </a>
+
+                <div class="collapse" id="navGestion">
+                    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 ms-3" asp-controller="Presupuesto" asp-action="Index">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span class="nav-text">Presupuestos</span>
+                    </a>
+                </div>
 
                 <!-- Grupo: Configuración -->
                 <a class="nav-link d-flex align-items-center gap-2 px-3 py-2" data-bs-toggle="collapse" href="#navConfig" role="button" aria-expanded="false" aria-controls="navConfig">

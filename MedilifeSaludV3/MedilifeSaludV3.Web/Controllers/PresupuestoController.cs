@@ -1,9 +1,11 @@
+using ClosedXML.Excel;
 using MedilifeSaludV3.Web.Models;
 using MedilifeSaludV3.Web.Models.ViewModels;
 using MedilifeSaludV3.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace MedilifeSaludV3.Web.Controllers;
 
@@ -45,7 +47,16 @@ public class PresupuestoController : Controller
         ViewBag.Q = q ?? "";
         return View(list);
     }
+    public async Task<IActionResult> ItemsModal(int id)
+    {
+        var p = await _db.Presupuestos
+            .Include(x => x.Items)
+            .FirstOrDefaultAsync(x => x.Id == id);
 
+        if (p == null) return NotFound();
+
+        return PartialView("_PresupuestoItemsModal", p);
+    }
     // GET: /Presupuesto/Details/5
     public async Task<IActionResult> Details(int? id)
     {
@@ -344,5 +355,218 @@ public class PresupuestoController : Controller
     {
         var first = await _db.Empleados.AsNoTracking().OrderBy(x => x.RazonSocial).Select(x => (int?)x.Id).FirstOrDefaultAsync();
         return first ?? 0;
+    }
+    // EXPORT: Todo (respeta q si lo mandás, igual que tu Index)
+    [HttpGet]
+    public async Task<IActionResult> ExportExcel(string? q = null)
+    {
+        var data = await BuildExportQuery(q,
+            numero: null, empresa: null, prestador: null, institucion: null, paciente: null, medico: null,
+            fechaDesde: null, fechaHasta: null,
+            creadoDesde: null, creadoHasta: null,
+            modDesde: null, modHasta: null
+        ).ToListAsync();
+
+        return ExportToExcel(data, "Presupuestos_Todo");
+    }
+
+    // EXPORT: Filtrado (los filtros que arma el JS del Index)
+    [HttpGet]
+    public async Task<IActionResult> ExportExcelFiltered(
+        string? q,
+        string? numero,
+        string? empresa,
+        string? prestador,
+        string? institucion,
+        string? paciente,
+        string? medico,
+        string? fechaDesde,
+        string? fechaHasta,
+        string? creadoDesde,
+        string? creadoHasta,
+        string? modDesde,
+        string? modHasta
+    )
+    {
+        var data = await BuildExportQuery(q,
+            numero, empresa, prestador, institucion, paciente, medico,
+            fechaDesde, fechaHasta,
+            creadoDesde, creadoHasta,
+            modDesde, modHasta
+        ).ToListAsync();
+
+        return ExportToExcel(data, "Presupuestos_Filtrado");
+    }
+
+    // ===================== helpers =====================
+
+    private IQueryable<Models.Presupuesto> BuildExportQuery(
+        string? q,
+        string? numero,
+        string? empresa,
+        string? prestador,
+        string? institucion,
+        string? paciente,
+        string? medico,
+        string? fechaDesde,
+        string? fechaHasta,
+        string? creadoDesde,
+        string? creadoHasta,
+        string? modDesde,
+        string? modHasta
+    )
+    {
+        // Si tu DbContext se llama distinto, ajustá _db
+        var query = _db.Presupuestos
+            .AsNoTracking()
+            .Include(x => x.Empresa)
+            .Include(x => x.Prestador)
+            .Include(x => x.Institucion)
+            .Include(x => x.Paciente)
+            .Include(x => x.Medico)
+            .Include(x => x.Items)
+            .AsQueryable();
+
+        // búsqueda general q (como Index: número/empresa/paciente/prestador)
+        if (!string.IsNullOrWhiteSpace(q))
+        {
+            var qq = q.Trim().ToLower();
+            query = query.Where(p =>
+                p.Numero.ToString().Contains(qq) ||
+                (p.Empresa != null && ((p.Empresa.RazonSocial ?? "").ToLower().Contains(qq) || (p.Empresa.NombreEmpresa ?? "").ToLower().Contains(qq))) ||
+                (p.Paciente != null && ((p.Paciente.Apellido ?? "").ToLower().Contains(qq) || (p.Paciente.Nombre ?? "").ToLower().Contains(qq))) ||
+                (p.Prestador != null && (p.Prestador.Nombre ?? "").ToLower().Contains(qq))
+            );
+        }
+
+        // filtros por texto
+        if (!string.IsNullOrWhiteSpace(numero))
+        {
+            var n = numero.Trim();
+            query = query.Where(p => p.Numero.ToString().Contains(n));
+        }
+
+        if (!string.IsNullOrWhiteSpace(empresa))
+        {
+            var e = empresa.Trim().ToLower();
+            query = query.Where(p => p.Empresa != null &&
+                (((p.Empresa.RazonSocial ?? "").ToLower().Contains(e)) || ((p.Empresa.NombreEmpresa ?? "").ToLower().Contains(e))));
+        }
+
+        if (!string.IsNullOrWhiteSpace(prestador))
+        {
+            var s = prestador.Trim().ToLower();
+            query = query.Where(p => p.Prestador != null && (p.Prestador.Nombre ?? "").ToLower().Contains(s));
+        }
+
+        if (!string.IsNullOrWhiteSpace(institucion))
+        {
+            var s = institucion.Trim().ToLower();
+            query = query.Where(p => p.Institucion != null && (p.Institucion.Nombre ?? "").ToLower().Contains(s));
+        }
+
+        if (!string.IsNullOrWhiteSpace(paciente))
+        {
+            var s = paciente.Trim().ToLower();
+            query = query.Where(p => p.Paciente != null &&
+                (((p.Paciente.Apellido ?? "").ToLower().Contains(s)) || ((p.Paciente.Nombre ?? "").ToLower().Contains(s))));
+        }
+
+        if (!string.IsNullOrWhiteSpace(medico))
+        {
+            var s = medico.Trim().ToLower();
+            query = query.Where(p => p.Medico != null &&
+                (((p.Medico.Apellido ?? "").ToLower().Contains(s)) || ((p.Medico.Nombre ?? "").ToLower().Contains(s))));
+        }
+
+        // filtros por rangos de fecha (strings yyyy-MM-dd desde inputs type=date)
+        static DateTime? ParseDate(string? s)
+            => DateTime.TryParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var d) ? d.Date : null;
+
+        var fd = ParseDate(fechaDesde);
+        var fh = ParseDate(fechaHasta);
+        if (fd.HasValue) query = query.Where(p => p.Fecha.Date >= fd.Value);
+        if (fh.HasValue) query = query.Where(p => p.Fecha.Date <= fh.Value);
+
+        var cd = ParseDate(creadoDesde);
+        var ch = ParseDate(creadoHasta);
+        if (cd.HasValue) query = query.Where(p => p.Creado.Date >= cd.Value);
+        if (ch.HasValue) query = query.Where(p => p.Creado.Date <= ch.Value);
+
+        var md = ParseDate(modDesde);
+        var mh = ParseDate(modHasta);
+        if (md.HasValue) query = query.Where(p => p.Modificado.HasValue && p.Modificado.Value.Date >= md.Value);
+        if (mh.HasValue) query = query.Where(p => p.Modificado.HasValue && p.Modificado.Value.Date <= mh.Value);
+
+        return query.OrderByDescending(p => p.Fecha).ThenByDescending(p => p.Numero);
+    }
+
+    private IActionResult ExportToExcel(List<Models.Presupuesto> data, string fileBaseName)
+    {
+        using var wb = new XLWorkbook();
+        var ws = wb.Worksheets.Add("Presupuestos");
+
+        // Header
+        var r = 1;
+        ws.Cell(r, 1).Value = "Numero";
+        ws.Cell(r, 2).Value = "Fecha";
+        ws.Cell(r, 3).Value = "Empresa";
+        ws.Cell(r, 4).Value = "Prestador";
+        ws.Cell(r, 5).Value = "Institucion";
+        ws.Cell(r, 6).Value = "Paciente";
+        ws.Cell(r, 7).Value = "Medico";
+        ws.Cell(r, 8).Value = "Total";
+        ws.Cell(r, 9).Value = "Creado";
+        ws.Cell(r, 10).Value = "CreadoPor";
+        ws.Cell(r, 11).Value = "Modificado";
+        ws.Cell(r, 12).Value = "ModificadoPor";
+
+        ws.Range(r, 1, r, 12).Style.Font.Bold = true;
+        ws.Range(r, 1, r, 12).Style.Fill.BackgroundColor = XLColor.FromArgb(245, 245, 245);
+
+        // Rows
+        foreach (var p in data)
+        {
+            r++;
+            var empresaTxt = p.Empresa?.RazonSocial ?? p.Empresa?.NombreEmpresa ?? "";
+            var prestadorTxt = p.Prestador?.Nombre ?? "";
+            var institucionTxt = p.Institucion?.Nombre ?? "";
+            var pacienteTxt = p.Paciente != null ? $"{p.Paciente.Apellido}, {p.Paciente.Nombre}" : "";
+            var medicoTxt = p.Medico != null ? $"{p.Medico.Apellido}, {p.Medico.Nombre}" : "";
+            var total = p.Items?.Sum(i => i.Cantidad * i.PrecioUnitario) ?? 0m;
+
+            ws.Cell(r, 1).Value = p.Numero;
+            ws.Cell(r, 2).Value = p.Fecha;
+            ws.Cell(r, 2).Style.DateFormat.Format = "dd/MM/yyyy";
+            ws.Cell(r, 3).Value = empresaTxt;
+            ws.Cell(r, 4).Value = prestadorTxt;
+            ws.Cell(r, 5).Value = institucionTxt;
+            ws.Cell(r, 6).Value = pacienteTxt;
+            ws.Cell(r, 7).Value = medicoTxt;
+            ws.Cell(r, 8).Value = total;
+            ws.Cell(r, 8).Style.NumberFormat.Format = "#,##0.00";
+
+            ws.Cell(r, 9).Value = p.Creado;
+            ws.Cell(r, 9).Style.DateFormat.Format = "dd/MM/yyyy HH:mm";
+            ws.Cell(r, 10).Value = p.CreadoPor ?? "";
+
+            if (p.Modificado.HasValue)
+            {
+                ws.Cell(r, 11).Value = p.Modificado.Value;
+                ws.Cell(r, 11).Style.DateFormat.Format = "dd/MM/yyyy HH:mm";
+            }
+            ws.Cell(r, 12).Value = p.ModificadoPor ?? "";
+        }
+
+        ws.Columns().AdjustToContents();
+
+        using var ms = new MemoryStream();
+        wb.SaveAs(ms);
+        ms.Position = 0;
+
+        var fileName = $"{fileBaseName}_{DateTime.Now:yyyyMMdd_HHmm}.xlsx";
+        return File(ms.ToArray(),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            fileName);
     }
 }
