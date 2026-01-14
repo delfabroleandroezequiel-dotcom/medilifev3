@@ -1,0 +1,27 @@
+@model MedilifeSaludV3.Web.Models.Remito
+
+@{
+    ViewData["Descripcion"] = "Detalle Tipo de Material";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="mb-0">Detalle Tipo de Material</h2>
+        <a class="btn btn-outline-secondary" asp-action="Index"><i class="bi bi-arrow-left"></i> Volver</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-3">Descripcion</dt>
+                <dd class="col-sm-9">@Model.Descripcion</dd>
+
+                <dt class="col-sm-3">Creado</dt>
+                <dd class="col-sm-9">@Model.Creado.ToString("dd/MM/yyyy HH:mm") - @Model.CreadoPor</dd>
+
+                <dt class="col-sm-3">Modificado</dt>
+                <dd class="col-sm-9">@(Model.Modificado.HasValue ? Model.Modificado.Value.ToString("dd/MM/yyyy HH:mm") : "") - @Model.ModificadoPor</dd>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -27,9 +27,28 @@ public class AppDbContext : DbContext
     public DbSet<Presupuesto> Presupuestos => Set<Presupuesto>();
     public DbSet<PresupuestoItem> PresupuestoItems => Set<PresupuestoItem>();
 
+    public DbSet<Stock> Stocks => Set<Stock>();
+    public DbSet<Remito> Remitos => Set<Remito>();
+    public DbSet<Factura> Facturas => Set<Factura>();
+    public DbSet<StockRemito> StockRemitos => Set<StockRemito>();
+    public DbSet<StockFactura> StockFacturas => Set<StockFactura>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<StockRemito>().HasKey(x => new { x.StockId, x.RemitoId });
+        modelBuilder.Entity<StockRemito>()
+            .HasOne(x => x.Stock).WithMany(s => s.StockRemitos).HasForeignKey(x => x.StockId);
+        modelBuilder.Entity<StockRemito>()
+            .HasOne(x => x.Remito).WithMany().HasForeignKey(x => x.RemitoId);
+
+        modelBuilder.Entity<StockFactura>().HasKey(x => new { x.StockId, x.FacturaId });
+        modelBuilder.Entity<StockFactura>()
+            .HasOne(x => x.Stock).WithMany(s => s.StockFacturas).HasForeignKey(x => x.StockId);
+        modelBuilder.Entity<StockFactura>()
+            .HasOne(x => x.Factura).WithMany().HasForeignKey(x => x.FacturaId);
+
 
         modelBuilder.Entity<Presupuesto>()
             .HasIndex(x => new { x.EmpresaId, x.Numero })

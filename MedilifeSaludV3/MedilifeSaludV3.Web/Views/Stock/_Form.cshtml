@@ -1,0 +1,202 @@
+@model MedilifeSaludV3.Web.Models.Stock
+@using MedilifeSaludV3.Web.Models
+
+<div class="row g-3">
+    <div class="col-md-3">
+        <label asp-for="Estado" class="form-label"></label>
+        <select asp-for="Estado" class="form-select" asp-items="Html.GetEnumSelectList<StockEstado>()"></select>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Marca</label>
+        <select asp-for="MarcaId" class="form-select" asp-items="ViewBag.Marcas">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Modelo</label>
+        <select asp-for="ModeloId" class="form-select" asp-items="ViewBag.Modelos">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Tipo material</label>
+        <select asp-for="TipoMaterialId" class="form-select" asp-items="ViewBag.TiposMaterial">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Lote" class="form-label"></label>
+        <input asp-for="Lote" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Ref" class="form-label"></label>
+        <input asp-for="Ref" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="SN" class="form-label">SN / N° de serie</label>
+        <input asp-for="SN" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="GETIN" class="form-label"></label>
+        <input asp-for="GETIN" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Diametro" class="form-label"></label>
+        <input asp-for="Diametro" class="form-control" type="number" step="0.01" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Largo" class="form-label"></label>
+        <input asp-for="Largo" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="TipoMedida" class="form-label"></label>
+        <select asp-for="TipoMedida" class="form-select" asp-items="Html.GetEnumSelectList<TipoMedida>()">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Proveedor compra</label>
+        <select asp-for="ProveedorCompraId" class="form-select" asp-items="ViewBag.Proveedores">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FechaCompra" class="form-label"></label>
+        <input asp-for="FechaCompra" class="form-control" type="datetime-local" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="RemitoCompra" class="form-label"></label>
+        <input asp-for="RemitoCompra" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FacturaCompra" class="form-label"></label>
+        <input asp-for="FacturaCompra" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <label asp-for="DetalleCompra" class="form-label"></label>
+        <textarea asp-for="DetalleCompra" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FechaIngreso" class="form-label"></label>
+        <input asp-for="FechaIngreso" class="form-control" type="datetime-local" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FechaVencimiento" class="form-label"></label>
+        <input asp-for="FechaVencimiento" class="form-control" type="datetime-local" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FechaFacturaCompra" class="form-label"></label>
+        <input asp-for="FechaFacturaCompra" class="form-control" type="datetime-local" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FechaRemitoCompra" class="form-label"></label>
+        <input asp-for="FechaRemitoCompra" class="form-control" type="datetime-local" />
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Institución actual</label>
+        <select asp-for="InstitucionActualId" class="form-select" asp-items="ViewBag.Instituciones">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Paciente actual</label>
+        <select asp-for="PacienteActualId" class="form-select" asp-items="ViewBag.Pacientes">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Médico actual</label>
+        <select asp-for="MedicoActualId" class="form-select" asp-items="ViewBag.Medicos">
+            <option value="">(Seleccionar)</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="FechaDevolucion" class="form-label"></label>
+        <input asp-for="FechaDevolucion" class="form-control" type="datetime-local" />
+    </div>
+
+    <div class="col-md-3 form-check form-switch mt-4">
+        <input class="form-check-input" asp-for="Consignado" />
+        <label class="form-check-label" asp-for="Consignado"></label>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Copias" class="form-label"></label>
+        <input asp-for="Copias" class="form-control" type="number" />
+    </div>
+
+    <div class="col-12">
+        <label asp-for="Comentario" class="form-label"></label>
+        <textarea asp-for="Comentario" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="Descripcion" class="form-label"></label>
+        <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="MedidaViejoFormato" class="form-label"></label>
+        <input asp-for="MedidaViejoFormato" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="MarcaDescripcion" class="form-label"></label>
+        <input asp-for="MarcaDescripcion" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="ModeloDescripcion" class="form-label"></label>
+        <input asp-for="ModeloDescripcion" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="ViejoId" class="form-label"></label>
+        <input asp-for="ViejoId" class="form-control" type="number" />
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="French" class="form-label"></label>
+        <input asp-for="French" class="form-control" type="number" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Remitos asociados</label>
+        <select asp-for="RemitoAsociadoIds" asp-items="ViewBag.Remitos" class="form-select" multiple size="6"></select>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Facturas asociadas</label>
+        <select asp-for="FacturaAsociadaIds" asp-items="ViewBag.Facturas" class="form-select" multiple size="6"></select>
+    </div>
+</div>

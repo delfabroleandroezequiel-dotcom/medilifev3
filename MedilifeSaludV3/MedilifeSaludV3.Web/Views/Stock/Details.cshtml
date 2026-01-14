@@ -1,0 +1,67 @@
+@model MedilifeSaludV3.Web.Models.Stock
+
+@{
+    ViewData["Title"] = "Detalle Stock";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="mb-0">Detalle Stock</h2>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" asp-action="Index">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+            <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">
+                <i class="bi bi-pencil"></i> Editar
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Id</dt><dd class="col-sm-9">@Model.Id</dd>
+                <dt class="col-sm-3">Estado</dt><dd class="col-sm-9">@Model.Estado</dd>
+                <dt class="col-sm-3">Marca</dt><dd class="col-sm-9">@Model.Marca?.Marca</dd>
+                <dt class="col-sm-3">Title</dt><dd class="col-sm-9">@Model.Title</dd>
+                <dt class="col-sm-3">Modelo</dt><dd class="col-sm-9">@Model.Modelo?.Title</dd>
+                <dt class="col-sm-3">Tipo material</dt><dd class="col-sm-9">@Model.TipoMaterial?.Title</dd>
+                <dt class="col-sm-3">Lote</dt><dd class="col-sm-9">@Model.Lote</dd>
+                <dt class="col-sm-3">Ref</dt><dd class="col-sm-9">@Model.Ref</dd>
+                <dt class="col-sm-3">SN</dt><dd class="col-sm-9">@Model.SN</dd>
+                <dt class="col-sm-3">Fecha ingreso</dt><dd class="col-sm-9">@Model.FechaIngreso</dd>
+                <dt class="col-sm-3">Fecha vencimiento</dt><dd class="col-sm-9">@Model.FechaVencimiento</dd>
+                <dt class="col-sm-3">Consignado</dt><dd class="col-sm-9">@(Model.Consignado ? "Sí" : "No")</dd>
+
+                <dt class="col-sm-3">Remitos asociados</dt>
+                <dd class="col-sm-9">
+                    @if (Model.StockRemitos.Any())
+                    {
+                        <ul class="mb-0">
+                            @foreach (var r in Model.StockRemitos.Select(x => x.Remito).OrderBy(x => x.Descripcion))
+                            {
+                                <li>@r.Descripcion</li>
+                            }
+                        </ul>
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Facturas asociadas</dt>
+                <dd class="col-sm-9">
+                    @if (Model.StockFacturas.Any())
+                    {
+                        <ul class="mb-0">
+                            @foreach (var f in Model.StockFacturas.Select(x => x.Factura).OrderBy(x => x.Descripcion))
+                            {
+                                <li>@f.Descripcion</li>
+                            }
+                        </ul>
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Creado</dt><dd class="col-sm-9">@Model.Creado (@Model.CreadoPor)</dd>
+                <dt class="col-sm-3">Modificado</dt><dd class="col-sm-9">@Model.Modificado (@Model.ModificadoPor)</dd>
+            </dl>
+        </div>
+    </div>
+</div>

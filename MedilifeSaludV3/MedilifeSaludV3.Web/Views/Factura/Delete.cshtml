@@ -1,0 +1,28 @@
+@model MedilifeSaludV3.Web.Models.Factura
+
+@{
+    ViewData["Descripcion"] = "Eliminar Tipo de Material";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="mb-0">Eliminar Tipo de Material</h2>
+        <a class="btn btn-outline-secondary" asp-action="Index"><i class="bi bi-arrow-left"></i> Volver</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p class="mb-3">¿Seguro que querés eliminar este registro?</p>
+            <dl class="row mb-0">
+                <dt class="col-sm-3">Descripcion</dt>
+                <dd class="col-sm-9">@Model.Descripcion</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post" class="mt-4">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+                <a class="btn btn-outline-secondary ms-2" asp-action="Index">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

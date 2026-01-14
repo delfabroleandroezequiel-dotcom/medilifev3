@@ -1,0 +1,237 @@
+@using MedilifeSaludV3.Web.Models
+@model IEnumerable<MedilifeSaludV3.Web.Models.Stock>
+
+@{
+    ViewData["Title"] = "Stock";
+}
+
+<div class="container-fluid mt-4">
+
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+        <h2 class="mb-0">Stock</h2>
+
+        <div class="d-flex align-items-center gap-2">
+            <a class="btn btn-primary" asp-action="Create">
+                <i class="bi bi-plus-lg"></i> Nuevo
+            </a>
+
+            <button id="btnExportTodo" type="button" class="btn btn-outline-success">
+                <i class="bi bi-file-earmark-excel"></i> Todo
+            </button>
+
+            <button id="btnExportFiltrado" type="button" class="btn btn-outline-success">
+                <i class="bi bi-file-earmark-excel"></i> Filtrado
+            </button>
+
+            <button id="btnToggleAudit" type="button" class="btn btn-outline-secondary">
+                <i class="bi bi-eye"></i> Más datos
+            </button>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table id="tblStock" class="table table-hover mb-0 align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Estado</th>
+                            <th>Marca</th>
+                            <th>Title</th>
+                            <th>Modelo</th>
+                            <th>Tipo material</th>
+                            <th>Lote</th>
+                            <th>Ref</th>
+                            <th>SN</th>
+                            <th>Ingreso</th>
+                            <th>Vencimiento</th>
+                            <th>Consignado</th>
+
+                            <!-- Auditoría -->
+                            <th class="col-audit">Creado</th>
+                            <th class="col-audit">Modificado</th>
+
+                            <th class="text-end" style="width: 240px;"></th>
+                        </tr>
+
+                        <!-- Filtros (igual estándar ObraSocial) -->
+                        <tr>
+                            <th><input id="fId" class="form-control form-control-sm" placeholder="Id" /></th>
+                            <th>
+                                <select id="fEstado" class="form-select form-select-sm">
+                                    <option value="">(Todos)</option>
+                                    <option value="D">D</option>
+                                    <option value="EN">EN</option>
+                                    <option value="U">U</option>
+                                    <option value="DP">DP</option>
+                                </select>
+                            </th>
+                            <th><input id="fMarca" class="form-control form-control-sm" placeholder="Marca" /></th>
+                            <th><input id="fTitle" class="form-control form-control-sm" placeholder="Title" /></th>
+                            <th><input id="fModelo" class="form-control form-control-sm" placeholder="Modelo" /></th>
+                            <th><input id="fTipoMaterial" class="form-control form-control-sm" placeholder="Tipo material" /></th>
+                            <th><input id="fLote" class="form-control form-control-sm" placeholder="Lote" /></th>
+                            <th><input id="fRef" class="form-control form-control-sm" placeholder="Ref" /></th>
+                            <th><input id="fSn" class="form-control form-control-sm" placeholder="SN" /></th>
+                            <th>
+                                <input id="ingresoDesde" type="date" class="form-control form-control-sm mb-1" />
+                                <input id="ingresoHasta" type="date" class="form-control form-control-sm" />
+                            </th>
+                            <th>
+                                <input id="vencDesde" type="date" class="form-control form-control-sm mb-1" />
+                                <input id="vencHasta" type="date" class="form-control form-control-sm" />
+                            </th>
+                            <th>
+                                <select id="fConsignado" class="form-select form-select-sm">
+                                    <option value="">(Todos)</option>
+                                    <option value="SI">Sí</option>
+                                    <option value="NO">No</option>
+                                </select>
+                            </th>
+                            <th class="col-audit">
+                                <input id="creadoDesde" type="date" class="form-control form-control-sm mb-1" />
+                                <input id="creadoHasta" type="date" class="form-control form-control-sm" />
+                            </th>
+                            <th class="col-audit">
+                                <input id="modDesde" type="date" class="form-control form-control-sm mb-1" />
+                                <input id="modHasta" type="date" class="form-control form-control-sm" />
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Estado</td>
+                            <td>@(item.Marca?.Marca)</td>
+                            <td>@item.Title</td>
+                            <td>@(item.Modelo?.Title)</td>
+                            <td>@(item.TipoMaterial?.Title)</td>
+                            <td>@item.Lote</td>
+                            <td>@item.Ref</td>
+                            <td>@item.SN</td>
+                            <td>@(item.FechaIngreso?.ToString("dd/MM/yyyy"))</td>
+                            <td>@(item.FechaVencimiento?.ToString("dd/MM/yyyy"))</td>
+                            <td>@(item.Consignado ? "Sí" : "No")</td>
+
+                            <!-- Auditoría -->
+                            <td class="col-audit">
+                                <div>@item.Creado.ToString("dd/MM/yyyy HH:mm")</div>
+                                <div class="text-muted small">@item.CreadoPor</div>
+                            </td>
+                            <td class="col-audit">
+                                @if (item.Modificado.HasValue)
+                                {
+                                    <div>@item.Modificado.Value.ToString("dd/MM/yyyy HH:mm")</div>
+                                    <div class="text-muted small">@item.ModificadoPor</div>
+                                }
+                            </td>
+
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@item.Id" title="Ver">
+                                    <i class="bi bi-search"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id" title="Editar">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id" title="Eliminar">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#tblStock').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                paging: true
+            });
+
+            // auditoría oculto por defecto
+            var auditVisible = false;
+            var colCreado = 12;
+            var colMod = 13;
+            table.column(colCreado).visible(false);
+            table.column(colMod).visible(false);
+            $('.col-audit').hide();
+
+            function applyFilters() {
+                table.column(0).search($('#fId').val() || "");
+                table.column(1).search($('#fEstado').val() || "");
+                table.column(2).search($('#fMarca').val() || "");
+                table.column(3).search($('#fTitle').val() || "");
+                table.column(4).search($('#fModelo').val() || "");
+                table.column(5).search($('#fTipoMaterial').val() || "");
+                table.column(6).search($('#fLote').val() || "");
+                table.column(7).search($('#fRef').val() || "");
+                table.column(8).search($('#fSn').val() || "");
+                table.column(11).search($('#fConsignado').val() || "");
+                table.draw();
+            }
+
+            $('#fId,#fEstado,#fMarca,#fTitle,#fModelo,#fTipoMaterial,#fLote,#fRef,#fSn,#fConsignado').on('keyup change', applyFilters);
+
+            $('#btnExportTodo').on('click', function () {
+                window.location.href = '@Url.Action("ExportExcel", "Stock")';
+            });
+
+            $('#btnToggleAudit').on('click', function () {
+                auditVisible = !auditVisible;
+                table.column(colCreado).visible(auditVisible);
+                table.column(colMod).visible(auditVisible);
+
+                if (auditVisible) $('.col-audit').show(); else $('.col-audit').hide();
+
+                $(this).html(auditVisible
+                    ? '<i class="bi bi-eye-slash"></i> Ocultar datos'
+                    : '<i class="bi bi-eye"></i> Más datos'
+                );
+            });
+
+            $('#btnExportFiltrado').on('click', function () {
+                // Nota: Marca/Modelo/TipoMaterial por ahora se filtran por texto en grilla.
+                // En export filtrado se envía el texto y además fechas/estado/consignado.
+                var estado = $('#fEstado').val() || "";
+                var title = $('#fTitle').val() || "";
+                var lote = $('#fLote').val() || "";
+                var refValue = $('#fRef').val() || "";
+                var sn = $('#fSn').val() || "";
+                var consignado = $('#fConsignado').val() || "";
+
+                var ingresoDesde = $('#ingresoDesde').val() || "";
+                var ingresoHasta = $('#ingresoHasta').val() || "";
+                var vencDesde = $('#vencDesde').val() || "";
+                var vencHasta = $('#vencHasta').val() || "";
+
+                var creadoDesde = $('#creadoDesde').val() || "";
+                var creadoHasta = $('#creadoHasta').val() || "";
+                var modDesde = $('#modDesde').val() || "";
+                var modHasta = $('#modHasta').val() || "";
+
+                var qs = new URLSearchParams({
+                    estado, title,
+                    lote, refValue, sn,
+                    consignado,
+                    ingresoDesde, ingresoHasta,
+                    vencDesde, vencHasta,
+                    creadoDesde, creadoHasta,
+                    modDesde, modHasta
+                });
+
+                window.location.href = '@Url.Action("ExportExcelFiltered", "Stock")' + '?' + qs.toString();
+            });
+        });
+    </script>
+}
